@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "mitfahrgelegenheit",
   "dependencies": {
-    "auto-suggest": "0.0.0",
+    "auto-suggest": "0.0.2",
     "browserify": "^12.0.1",
     "coffee-script": "~1.10.0",
     "uglify-js": "~2.6.2"
