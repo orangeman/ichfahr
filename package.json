@@ -9,7 +9,7 @@
     "uglify-js": "~2.6.2"
   },
   "scripts": {
-    "prestart": "./node_modules/coffee-script/bin/coffee -c src/*.coffee && ./node_modules/browserify/bin/cmd.js src/hello.js | node_modules/uglify-js/bin/uglifyjs > h.js",
+    "prestart": "./node_modules/coffee-script/bin/coffee -c src/*.coffee && ./node_modules/browserify/bin/cmd.js src/init.js | node_modules/uglify-js/bin/uglifyjs > i.js",
     "start": "echo Done."
   },
   "repository": {
