@@ -2,14 +2,14 @@
   "name": "ichfahr",
   "version": "0.0.1",
   "description": "mitfahrgelegenheit",
-  "main": "index.js",
   "dependencies": {
+    "auto-suggest": "0.0.0",
     "browserify": "^12.0.1",
     "coffee-script": "~1.10.0",
     "uglify-js": "~2.6.2"
   },
   "scripts": {
-    "prestart": "./node_modules/coffee-script/bin/coffee -c src/*.coffee && ./node_modules/browserify/bin/cmd.js src/hello.js | node_modules/uglify-js/bin/uglifyjs > h.js",
+    "prestart": "./node_modules/coffee-script/bin/coffee -c src/*.coffee && ./node_modules/browserify/bin/cmd.js src/init.js | node_modules/uglify-js/bin/uglifyjs > i.js",
     "start": "echo Done."
   },
   "repository": {
