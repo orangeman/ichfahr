@@ -1,21 +1,21 @@
 @font-face {
      font-family: 'sen';
-     src: url('../font/sen.eot');
-     src: url('../font/sen.eot?#iefix') format('embedded-opentype'),
-        url('../font/sen.woff') format('woff'),
-        url('../font/sen.ttf') format('truetype'),
-        url('../font/sen.svg#bebas_neueregular') format('svg');
+     src: url('font/sen.eot');
+     src: url('font/sen.eot?#iefix') format('embedded-opentype'),
+        url('font/sen.woff') format('woff'),
+        url('font/sen.ttf') format('truetype'),
+        url('font/sen.svg#bebas_neueregular') format('svg');
         font-weight: normal;
         font-style: normal;
 }
 
 @font-face {
      font-family: 'sen_bold';
-     src: url('../font/sen_bold.eot');
-     src: url('../font/sen_bold.eot?#iefix') format('embedded-opentype'),
-        url('../font/sen_bold.woff') format('woff'),
-        url('../font/sen_bold.ttf') format('truetype'),
-        url('../font/sen_bold.svg#bebas_neueregular') format('svg');
+     src: url('font/sen_bold.eot');
+     src: url('font/sen_bold.eot?#iefix') format('embedded-opentype'),
+        url('font/sen_bold.woff') format('woff'),
+        url('font/sen_bold.ttf') format('truetype'),
+        url('font/sen_bold.svg#bebas_neueregular') format('svg');
         font-weight: bold;
         font-style: normal;
 }
