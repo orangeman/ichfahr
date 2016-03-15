@@ -1,6 +1,6 @@
 {
   "name": "ichfahr",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "mitfahrgelegenheit",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,5 @@
     "carpooling",
     "mitfahrzentrale"
   ],
-  "author": "ichfahr",
-  "license": "MIT"
+  "author": "ichfahr team",
 }
