@@ -170,6 +170,6 @@ window.to = auto $("to"), "Freiburg"
 
 
 js = document.createElement "script"
-js.src = "/m/m.js";
+js.src = "inc/js/m.js"
 document.body.appendChild js
 #document.body.insertAdjacentHTML 'beforeend', '<script src="/m/main.js"></script>'

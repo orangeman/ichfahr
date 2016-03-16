@@ -3,13 +3,11 @@
   "version": "0.0.1",
   "description": "mitfahrgelegenheit",
   "dependencies": {
-    "auto-suggest": "0.0.2",
-    "browserify": "^12.0.1",
-    "coffee-script": "~1.10.0",
-    "uglify-js": "~2.6.2"
+    "build-util": "*",
+    "auto-suggest": "*"
   },
   "scripts": {
-    "prestart": "./node_modules/coffee-script/bin/coffee -c src/*.coffee && ./node_modules/browserify/bin/cmd.js src/init.js | node_modules/uglify-js/bin/uglifyjs > i.js",
+    "prestart": "./node_modules/coffee-script/bin/coffee build.coffee",
     "start": "echo Done."
   },
   "repository": {
