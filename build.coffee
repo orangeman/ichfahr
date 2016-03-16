@@ -9,6 +9,9 @@ build (i) ->
 build (m) ->
   #FILES AS STRING VARS
   m.inline "inc/restof.css"
+  m.inline "inc/html/navi.html"
+  m.inline "inc/html/insert.html"
   m.inline "inc/html/details.html"
+  m.inline "inc/html/contacts.html"
   m.append "src/main.coffee"
   m.browserify "inc/js/m.js"#, mini: true
