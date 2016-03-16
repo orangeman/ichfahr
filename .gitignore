@@ -3,4 +3,5 @@
 */*/.DS_Store
 node_modules
 src/*.js
-
+inc/js/i.js
+inc/js/m.js
