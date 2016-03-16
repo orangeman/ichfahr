@@ -11,9 +11,10 @@
     "tape": "^4.5.1"
   },
   "scripts": {
+    "pretest": "./node_modules/coffee-script/bin/coffee -c src/*coffee",
+    "prestart": "./node_modules/coffee-script/bin/coffee -c src/*coffee",
     "test": "./node_modules/coffee-script/bin/coffee spec/*.coffee | node_modules/tap-spec/bin/cmd.js",
-    "prestart": "./node_modules/coffee-script/bin/coffee build.coffee",
-    "start": "echo Done."
+    "start": "./node_modules/coffee-script/bin/coffee build.coffee"
   },
   "repository": {
     "type": "git",
