@@ -6,7 +6,12 @@
     "build-util": "*",
     "auto-suggest": "*"
   },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
+  },
   "scripts": {
+    "test": "./node_modules/coffee-script/bin/coffee spec/*.coffee | node_modules/tap-spec/bin/cmd.js",
     "prestart": "./node_modules/coffee-script/bin/coffee build.coffee",
     "start": "echo Done."
   },
