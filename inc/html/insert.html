@@ -1,0 +1,81 @@
+<h2>Neue Fahrt eintragen</h2>
+
+<div class="insert_box">
+    <h3>Was Kostet die Fahrt?</h3>
+    <input type="tel" class="form_inputtext insert_price" placeholder="Preis in €" id="input_ride_price">
+</div>
+<div class="insert_box">
+    <h3>Wieviele Plätze hast Du frei?</h3>
+    <ul class="new_places_ul">
+        <li class="new_places tooltip" title="Ich habe keine Plätze frei">
+            <input type="radio" name="new_people" class="insert_radio" id="new_people_0">
+            <label for="new_people_0" id="new_people_0_label" class="insert_radio_label places0"></label>
+        </li>
+        <li class="new_places tooltip" title="Ich habe einen Platz frei">
+            <input type="radio" name="new_people" class="insert_radio" id="new_people_1">
+            <label for="new_people_1" id="new_people_1_label" class="insert_radio_label places1"></label>
+        </li>
+        <li class="new_places tooltip" title="Ich habe zwei Plätze frei">
+            <input type="radio" name="new_people" class="insert_radio" id="new_people_2" checked>
+            <label for="new_people_2" id="new_people_2_label" class="insert_radio_label places2"></label>
+        </li>
+        <li class="new_places tooltip" title="Ich habe drei Plätze frei">
+            <input type="radio" name="new_people" class="insert_radio" id="new_people_3">
+            <label for="new_people_3" id="new_people_3_label" class="insert_radio_label places3"></label>
+        </li>
+        <li class="new_places tooltip" title="Ich habe viel Plätze frei (>3)">
+            <input type="radio" name="new_people" class="insert_radio" id="new_people_many">
+            <label for="new_people_many" id="new_people_many_label" class="insert_radio_label places4"></label>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>
+
+<div class="insert_box">
+    <h3>Wie bist Du unterwegs?</h3>
+    <ul class="new_mode_ul">
+        <li class="new_mode tooltip" title="per Auto">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_1">
+            <label for="new_mode_1" id="new_mode_1_label" class="insert_radio_label mode1"></label>
+        </li>
+        <li class="new_mode tooltip" title="per Motorrad">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_7">
+            <label for="new_mode_7" id="new_mode_7_label" class="insert_radio_label mode7"></label>
+        </li>
+        <li class="new_mode tooltip" title="per Bus">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_2">
+            <label for="new_mode_2" id="new_mode_2_label" class="insert_radio_label mode2"></label>
+        </li>
+        <li class="new_mode tooltip" title="per Zug">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_3" checked>
+            <label for="new_mode_3" id="new_mode_3_label" class="insert_radio_label mode3"></label>
+        </li>
+        <li class="new_mode tooltip" title="per LKW/Transporter">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_4">
+            <label for="new_mode_4" id="new_mode_4_label" class="insert_radio_label mode4"></label>
+        </li>
+        <li class="new_mode tooltip" title="per Boot">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_5">
+            <label for="new_mode_5" id="new_mode_5_label" class="insert_radio_label mode5"></label>
+        </li>
+        <li class="new_mode tooltip" title="per Flugzeug">
+            <input type="radio" name="new_mode" class="insert_radio" id="new_mode_6">
+            <label for="new_mode_6" id="new_mode_6_label" class="insert_radio_label mode6"></label>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>
+
+<div class="insert_box">
+    <h3>Schreib ein paar Details zur Fahrt</h3>
+    <textarea class="form_inputtext insert_textarea" placeholder="Hier ist Platz für einen Beschreibungstext zur Fahrt"></textarea>
+</div>
+<h3>Wie bist Du erreichbar?</h3>
+<div class="insert_box">
+    <input type="tel" class="form_inputtext insert_tel" id="" placeholder="Telefonnummer">
+</div>
+<div class="insert_box">
+    <input type="text" class="form_inputtext insert_mail" id="" placeholder="eMail-Adresse">
+</div>
+
+<input id="btn_save" type="submit" class="call2action absolute_button insert_save" value="speichern">
