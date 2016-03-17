@@ -382,7 +382,7 @@ h2{
   left: 1px;
 }
 
-#insert{
+#edit{
     position: relative;
     padding: 60px 10px;
     display: none;
@@ -415,7 +415,7 @@ h2{
 
 @media screen and (max-width: 580px) /* Mobile */ {
 
-    #suche,#details,#mitfahrgelegenheit,#insert{
+    #suche,#details,#mitfahrgelegenheit,#edit{
         width: 100%;
         position: absolute;
         max-width: 100%;
@@ -429,7 +429,7 @@ h2{
         display: block;
         left: 200%;
     }
-    #insert{
+    #edit{
         top: 240px;
     }
 }
@@ -445,11 +445,11 @@ h2{
     #suche,#result_contact{
         width: 38%;
     }
-    #mitfahrgelegenheit,#details,#insert{
+    #mitfahrgelegenheit,#details,#edit{
         width: 62%;
         left: 38%;
     }
-    #insert{
+    #edit{
         top: 0;
     }
 }
@@ -457,7 +457,7 @@ h2{
     body {
         background: #004565;
     }
-    #suche,#details,#mitfahrgelegenheit,#details,#insert{
+    #suche,#details,#mitfahrgelegenheit,#details,#edit{
         width: 50%;
         position: absolute;
         max-width: 50%;
@@ -474,7 +474,7 @@ h2{
     #result_contact{
         left: 50%
     }
-    #insert{
+    #edit{
         top: 240px;
     }
 }
@@ -482,7 +482,7 @@ h2{
     body {
         background: red;
     }
-    #suche,#details,#mitfahrgelegenheit,#details,#insert{
+    #suche,#details,#mitfahrgelegenheit,#details,#edit{
         width: 33%;
         position: absolute;
         max-width: 33%;
@@ -499,7 +499,7 @@ h2{
     #result_contact{
         left: 33%
     }
-    #insert{
+    #edit{
         top: 240px;
     }
 }
