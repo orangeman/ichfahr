@@ -93,10 +93,10 @@ window.onpopstate = (e) -> # BACK
         when "edit"
           true
         when "mitfahrgelegenheit"
-          setMargin -1 * width * 0.98
+          setMargin -1 * width * 0.97
           slideIn "btn_edit"
         else #details
-          setMargin -2 * width * 0.98
+          setMargin -2 * width * 0.97
           slideIn "result_contact"
 
 
