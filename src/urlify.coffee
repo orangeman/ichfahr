@@ -23,7 +23,6 @@ module.exports = (q) ->
     if m = url.match /mitfahrgelegenheit\/.+\/.+\/(.+)/
       "details"
     else if m = url.match /mitfahrgelegenheit(\/.+\/.+)/
-      q.route = m[1]
       "mitfahrgelegenheit"
     else
       "suche"
