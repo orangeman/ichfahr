@@ -56,7 +56,6 @@ $("btn_offer").onclick = () ->
 
 $("results").onclick = (e) ->
   id = findParent "LI", e.target
-  console.log "DETAILS id" + id
   window.renderDetails id # m.js
   url "details", id
   goTo "details"
@@ -96,7 +95,6 @@ window.onpopstate = (e) -> # BACK
         when "mitfahrgelegenheit"
           setMargin -1 * width
           slideIn "btn_edit"
-          window.query()
         else #details
           setMargin -2 * width
           slideIn "result_contact"
