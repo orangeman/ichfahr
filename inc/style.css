@@ -222,6 +222,11 @@ h2{
     list-style: none;
 }
 
+.result_li:HOVER{
+    background-color: #ff0000;
+    cursor: pointer;
+}
+
 .resultlist_first_line{
     position: relative;
     font-size: 24px;
