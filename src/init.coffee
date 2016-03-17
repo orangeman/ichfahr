@@ -163,7 +163,7 @@ window.onpopstate = (e) -> # BACK
 
 
 auto = require "auto-suggest"
-window.API = "http://localhost:5000"
+window.API = "http://pi.sonnenstreifen.de:5000"
 window.from = auto $("from"), window.API, "Berlin"
 window.to = auto $("to"), window.API, "Freiburg"
 
