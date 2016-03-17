@@ -52,7 +52,7 @@ rds = null # RIDE DATA STORE
 js.onload = () ->
   results = $ "results"
   # CONNECT TO STREAMING LIFE COMMUNICATION SOCKET
-  rds = require("../rds-client") window.API, () ->
+  rds = require("rds-client") window.API, () ->
     window.query() # search on re-connect
   .on (ride) ->
     console.log "FOUND " + JSON.stringify ride
