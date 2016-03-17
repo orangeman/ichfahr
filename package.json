@@ -6,7 +6,8 @@
     "auto-suggest": "*",
     "build-util": "*",
     "rds-client": "*",
-    "mustache": "^2.2.1"
+    "mustache": "^2.2.1",
+    "request": "^2.69.0"
   },
   "devDependencies": {
     "tap-spec": "^4.1.1",
