@@ -16,7 +16,7 @@
     "pretest": "./node_modules/coffee-script/bin/coffee -c src/*coffee",
     "prestart": "./node_modules/coffee-script/bin/coffee -c src/*coffee",
     "test": "./node_modules/coffee-script/bin/coffee spec/*.coffee | node_modules/tap-spec/bin/cmd.js",
-    "start": "./node_modules/coffee-script/bin/coffee build.coffee"
+    "start": "./node_modules/coffee-script/bin/coffee build.coffee && coffee server.coffee"
   },
   "repository": {
     "type": "git",
