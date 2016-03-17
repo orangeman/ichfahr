@@ -164,10 +164,18 @@ window.onpopstate = (e) -> # BACK
 )() # initial function call
 
 
-auto = require "auto-suggest"
+
 window.API = "http://pi.sonnenstreifen.de:5000"
-window.from = auto $("from"), window.API, "Berlin"
-window.to = auto $("to"), window.API, "Freiburg"
+http = require "./src/request"
+auto = require "auto-suggest"
+
+complete = (text, render) ->
+  http.get "#{window.API}?q=#{encodeURI(text)}", (err, res, names) ->
+    render names.split ","
+
+window.from = auto $("from"), complete, "Berlin"
+window.to = auto $("to"), complete, "Freiburg"
+
 
 
 js = document.createElement "script"
