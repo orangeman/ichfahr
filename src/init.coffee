@@ -23,12 +23,13 @@ findParent = (tag, el) ->
 
 ########   NAV HELPERS   #########
 
+urlify = require("./src/urlify")()
 slideTo = null
 last = null
 
-url = (page) ->
+url = (page, id) ->
   unless last == page
-    history.pushState {}, last = page, BASE + page
+    history.pushState {}, last = page, urlify page, id
 
 goTo = (page) ->
   slideOut "result_contact"
@@ -57,8 +58,8 @@ $("results").onclick = (e) ->
   id = findParent "LI", e.target
   console.log "DETAILS id" + id
   window.renderDetails id # m.js
-  goTo "details#" + id
-  url "details#" + id
+  url "details", id
+  goTo "details"
 
 $("btn_contact").onclick = () ->
   if last != "contact"
@@ -74,7 +75,7 @@ window.onpopstate = (e) -> # BACK
   else if last == "contact"
     undim "details"
     $("result_contact_options").className = "result_contact_closed"
-  goTo last = window.location.pathname.split("/").pop()
+  goTo last = urlify.match window.location.href
 
 
 
@@ -158,8 +159,8 @@ window.onpopstate = (e) -> # BACK
           show "details"
 
 
-  last = window.location.pathname.split("/").pop()
-  goTo last # direct link or page refresh
+# direct deep link / page refresh / window resize
+  goTo last = urlify.match window.location.href
 )() # initial function call
 
 
