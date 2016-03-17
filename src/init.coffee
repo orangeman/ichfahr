@@ -1,4 +1,3 @@
-BASE = window.location.origin + "/m/"
 
 ########   DOM/CSS HELPERS   ########
 
@@ -165,8 +164,9 @@ window.onpopstate = (e) -> # BACK
 
 
 auto = require "auto-suggest"
-window.from = auto $("from"), "Berlin"
-window.to = auto $("to"), "Freiburg"
+window.API = "http://localhost:5000"
+window.from = auto $("from"), window.API, "Berlin"
+window.to = auto $("to"), window.API, "Freiburg"
 
 
 js = document.createElement "script"
