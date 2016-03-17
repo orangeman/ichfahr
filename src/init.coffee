@@ -118,6 +118,7 @@ window.onpopstate = (e) -> # BACK
           slideOut "result_contact"
           show "mitfahrgelegenheit"
         else #details
+          hide "edit"
           hide "mitfahrgelegenheit"
           slideIn "result_contact"
 
@@ -135,6 +136,7 @@ window.onpopstate = (e) -> # BACK
           slideOut "result_contact"
         else #details
           setMargin -0.5 * width
+          show "mitfahrgelegenheit"
           slideIn "result_contact"
           slideIn "btn_edit"
 
