@@ -5,6 +5,7 @@
   "dependencies": {
     "auto-suggest": "*",
     "build-util": "*",
+    "rds-client": "*",
     "mustache": "^2.2.1"
   },
   "devDependencies": {
