@@ -1,20 +1,18 @@
-<li id="{{ id }}" class="result_li">
-    <a href="#" title="Gesuch: Berlin > München, Mo. 11.22.">
-        <div class="resultlist_first_line resultlist_element">
-            <div class="resultlist_time">{{ departure }}</div>
-            <div class="resultlist_price">24,24 <span>€</span></div>
-            <div class="resultlist_places places{{ seats }}"></div>
-            <div class="resultlist_mode mode2"></div>
-        </div>
-        <div class="resultlist_second_line resultlist_element">
-            <div class="resultlist_date">{{ date }}</div>
-            <div class="resultlist_route">&bull; {{ from }} &raquo; {{ to }}</div>
-            <ul class="resultlist_allowed">
-                <li class="result_allowed_dog"></li>
-                <li class="result_allowed_box"></li>
-                <li class="result_allowed_smoking"></li>
-                <li class="result_allowed_female"></li>
-            </ul>
-        </div>
-    </a>
+<li id="{{ id }}" class="result_li" title="{{ title }}">
+    <div class="resultlist_first_line resultlist_element">
+        <div class="resultlist_time">{{ departure }}</div>
+        <div class="resultlist_price">24,24 <span>€</span></div>
+        <div class="resultlist_places places{{ seats }}"></div>
+        <div class="resultlist_mode mode2"></div>
+    </div>
+    <div class="resultlist_second_line resultlist_element">
+        <div class="resultlist_date">{{ date }}</div>
+        <div class="resultlist_route">&bull; {{ from }} &raquo; {{ to }}</div>
+        <ul class="resultlist_allowed">
+            <li class="result_allowed_dog"></li>
+            <li class="result_allowed_box"></li>
+            <li class="result_allowed_smoking"></li>
+            <li class="result_allowed_female"></li>
+        </ul>
+    </div>
 </li>

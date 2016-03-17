@@ -93,11 +93,11 @@
 
 
 
-#insert h2{
+#edit h2{
     margin-bottom: 10px;
 }
 
-#insert h3{
+#edit h3{
     margin-bottom: 5px;
 }
 
@@ -335,275 +335,275 @@
 }
 
 .result_allowed_dog{
-    background-image: url('../pix/icn_animal.png');
+    background-image: url('/pix/icn_animal.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_animal");
+    url("/pix/icons.svg#icn_animal");
 }
 
 .result_allowed_box{
-    background-image: url('../pix/icn_box.png');
+    background-image: url('/pix/icn_box.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_box");
+    url("/pix/icons.svg#icn_box");
 }
 
 .result_allowed_smoking{
-    background-image: url('../pix/icn_smoking.png');
+    background-image: url('/pix/icn_smoking.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_smoking");
+    url("/pix/icons.svg#icn_smoking");
 }
 
 .result_allowed_female{
-    background-image: url('../pix/icn_female.png');
+    background-image: url('/pix/icn_female.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_female");
+    url("/pix/icons.svg#icn_female");
 }
 
 .result_contact_button{
-    background-image: url('../pix/icn_contact.png');
+    background-image: url('/pix/icn_contact.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_contact");
+    url("/pix/icons.svg#icn_contact");
 }
 
 .result_contact_close{
-    background-image: url('../pix/icn_close.png');
+    background-image: url('/pix/icn_close.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_close");
+    url("/pix/icons.svg#icn_close");
 }
 
 .result_contact_tel{
-    background-image: url('../pix/icn_tel.png');
+    background-image: url('/pix/icn_tel.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_tel2");
+    url("/pix/icons.svg#icn_tel2");
 }
 
 .result_contact_sms{
-    background-image: url('../pix/icn_sms.png');
+    background-image: url('/pix/icn_sms.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_sms");
+    url("/pix/icons.svg#icn_sms");
 }
 
 .result_contact_mail{
-    background-image: url('../pix/icn_mail.png');
+    background-image: url('/pix/icn_mail.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_mail2");
+    url("/pix/icons.svg#icn_mail2");
 }
 
 .result_contact_facebook{
-    background-image: url('../pix/icn_facebook.png');
+    background-image: url('/pix/icn_facebook.png');
 }
 
 .result_contact_github{
-    background-image: url('../pix/icn_github.png');
+    background-image: url('/pix/icn_github.png');
 }
 
 .result_contact_soundcloud{
-    background-image: url('../pix/icn_soundcloud.png');
+    background-image: url('/pix/icn_soundcloud.png');
 }
 
 .mode1{
-    background-image: url('../pix/icn_car.png');
+    background-image: url('/pix/icn_car.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_car");
+    url("/pix/icons.svg#icn_car");
 }
 
 .mode2{
-    background-image: url('../pix/icn_bus.png');
+    background-image: url('/pix/icn_bus.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_bus");
+    url("/pix/icons.svg#icn_bus");
 }
 
 .mode3{
-    background-image: url('../pix/icn_train.png');
+    background-image: url('/pix/icn_train.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_train");
+    url("/pix/icons.svg#icn_train");
 }
 
 .mode4{
-    background-image: url('../pix/icn_truck.png');
+    background-image: url('/pix/icn_truck.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_truck");
+    url("/pix/icons.svg#icn_truck");
 }
 
 .mode5{
-    background-image: url('../pix/icn_boot.png');
+    background-image: url('/pix/icn_boot.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_boat");
+    url("/pix/icons.svg#icn_boat");
 }
 
 .mode6{
-    background-image: url('../pix/icn_plain.png');
+    background-image: url('/pix/icn_plain.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_plain");
+    url("/pix/icons.svg#icn_plain");
 }
 
 .mode7{
-    background-image: url('../pix/icn_motorbike.png');
+    background-image: url('/pix/icn_motorbike.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_motorbike");
+    url("/pix/icons.svg#icn_motorbike");
 }
 
 .places0{
-    background-image: url('../pix/icn_place_0.png');
+    background-image: url('/pix/icn_place_0.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_place0");
+    url("/pix/icons.svg#icn_place0");
 }
 
 .places1{
-    background-image: url('../pix/icn_place_1.png');
+    background-image: url('/pix/icn_place_1.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_place1");
+    url("/pix/icons.svg#icn_place1");
 }
 
 .places2{
-    background-image: url('../pix/icn_place_2.png');
+    background-image: url('/pix/icn_place_2.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_place2");
+    url("/pix/icons.svg#icn_place2");
 }
 
 .places3{
-    background-image: url('../pix/icn_place_3.png');
+    background-image: url('/pix/icn_place_3.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_place3");
+    url("/pix/icons.svg#icn_place3");
 }
 
 .places4{
-    background-image: url('../pix/icn_place_4.png');
+    background-image: url('/pix/icn_place_4.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_place4");
+    url("/pix/icons.svg#icn_place4");
 }
 
 .badge_first100{
-    background-image: url('../pix/icn_badge_first100.png');
+    background-image: url('/pix/icn_badge_first100.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_badge_first100");
+    url("/pix/icons.svg#icn_badge_first100");
 }
 
 .badge_first1000{
-    background-image: url('../pix/icn_badge_first1000.png');
+    background-image: url('/pix/icn_badge_first1000.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_badge_first1000");
+    url("/pix/icons.svg#icn_badge_first1000");
 }
 
 .badge_offerd_rides{
-    background-image: url('../pix/icn_myrides.png');
+    background-image: url('/pix/icn_myrides.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_myrides");
+    url("/pix/icons.svg#icn_myrides");
 }
 
 .badge_handshake{
-    background-image: url('../pix/icn_badge_handshake.png');
+    background-image: url('/pix/icn_badge_handshake.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_handshake");
+    url("/pix/icons.svg#icn_handshake");
 }
 
 .badge_shared{
-    background-image: url('../pix/icn_badge_share.png');
+    background-image: url('/pix/icn_badge_share.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_badge_shared");
+    url("/pix/icons.svg#icn_badge_shared");
 }
 
 .insert_price{
-    background-image: url('../pix/icn_money.png');
+    background-image: url('/pix/icn_money.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_money");
+    url("/pix/icons.svg#icn_money");
 }
 
 .start_form_date,
 .insert_date{
-    background-image: url('../pix/icn_date.png');
+    background-image: url('/pix/icn_date.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_date");
+    url("/pix/icons.svg#icn_date");
 }
 
 .insert_tel{
-    background-image: url('../pix/icn_phone.png');
+    background-image: url('/pix/icn_phone.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_tel");
+    url("/pix/icons.svg#icn_tel");
 }
 
 .insert_time{
-    background-image: url('../pix/icn_time.png');
+    background-image: url('/pix/icn_time.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_time");
+    url("/pix/icons.svg#icn_time");
 }
 
 .insert_mail{
-    background-image: url('../pix/icn_mail2.png');
+    background-image: url('/pix/icn_mail2.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_mail");
+    url("/pix/icons.svg#icn_mail");
 }
 
 .insert_save{
-    background-image: url('../pix/icn_save.png');
+    background-image: url('/pix/icn_save.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_save");
+    url("/pix/icons.svg#icn_save");
 }
 
 #insert_button_ride{
-    background-image: url('../pix/icn_insert_ride.png');
+    background-image: url('/pix/icn_insert_ride.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_myrides2");
+    url("/pix/icons.svg#icn_myrides2");
 }
 
 .menu_page{
-   background-image: url('../pix/icn_menu.png');
+   background-image: url('/pix/icn_menu.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_menu");
+    url("/pix/icons.svg#icn_menu");
 }
 
 .menu_user{
-    background-image: url('../pix/icn_user.png');
+    background-image: url('/pix/icn_user.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_user");
+    url("/pix/icons.svg#icn_user");
 }
 
 .menu_rides{
-    background-image: url('../pix/icn_myrides.png');
+    background-image: url('/pix/icn_myrides.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_myrides");
+    url("/pix/icons.svg#icn_myrides");
 }
 
 .open_submenu{
-    background-image: url('../pix/icn_close.png');
+    background-image: url('/pix/icn_close.png');
     background-image:
     linear-gradient(transparent, transparent)
-    url("../pix/icons.svg#icn_close");
+    url("/pix/icons.svg#icn_close");
 }
 
 </style>

@@ -15,6 +15,8 @@ spec "MAKE URL from query params", (t) ->
 
   t.equal url("edit"), "http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/abc37/edit"
 
+  t.equal url("suche"), "http://ichfahr.de/"
+
   t.end()
 
 
@@ -22,9 +24,11 @@ spec "MAKE URL from query params", (t) ->
 spec "MATCH URL into query params", (t) ->
 
   t.equal url.match("http://ichfahr.de/mitfahrgelegenheit/Bar/Home"), "mitfahrgelegenheit"
-  t.equal q.route, "/Bar/Home", "search params changed"
 
-  t.equal url.match("http://mitfahrgelegenheit/Berlin/Munich/xy23"), "details"
-  t.equal q.route, "/Bar/Home", "view details does not change search param"
+  t.equal url.match("http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/xy23"), "details"
+
+  t.equal url.match("http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/abc37/edit"), "edit"
+
+  t.equal url.match("http://ichfahr.de/"), "suche"
 
   t.end()

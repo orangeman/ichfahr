@@ -1,4 +1,3 @@
-BASE = window.location.origin + "/m/"
 
 ########   DOM/CSS HELPERS   ########
 
@@ -24,16 +23,17 @@ findParent = (tag, el) ->
 
 ########   NAV HELPERS   #########
 
+urlify = require("./src/urlify")()
 slideTo = null
 last = null
 
-url = (page) ->
+url = (page, id) ->
   unless last == page
-    history.pushState {}, last = page, BASE + page
+    history.pushState {}, last = page, urlify page, id
 
 goTo = (page) ->
   slideOut "result_contact"
-  slideOut "btn_insert"
+  slideOut "btn_edit"
   undim "details"
   slideTo page
   show page
@@ -48,18 +48,17 @@ $("btn_search").onclick = () ->
   window.query()
 
 $("btn_offer").onclick = () ->
-  if last != "insert"
+  if last != "edit"
     show "btn_save"
-    goTo "insert"
-    url "insert"
+    goTo "edit"
+    url "edit"
   else history.back()
 
 $("results").onclick = (e) ->
   id = findParent "LI", e.target
-  console.log "DETAILS id" + id
   window.renderDetails id # m.js
-  goTo "details#" + id
-  url "details#" + id
+  url "details", id
+  goTo "details"
 
 $("btn_contact").onclick = () ->
   if last != "contact"
@@ -69,13 +68,13 @@ $("btn_contact").onclick = () ->
   else history.back()
 
 window.onpopstate = (e) -> # BACK
-  if last == "insert"
-    hide "insert"
+  if last == "edit"
+    hide "edit"
     hide "btn_save"
   else if last == "contact"
     undim "details"
     $("result_contact_options").className = "result_contact_closed"
-  goTo last = window.location.pathname.split("/").pop()
+  goTo last = urlify.match window.location.href
 
 
 
@@ -91,14 +90,13 @@ window.onpopstate = (e) -> # BACK
       switch page
         when "suche"
           setMargin 0
-        when "insert"
+        when "edit"
           true
         when "mitfahrgelegenheit"
-          setMargin -1 * width
-          slideIn "btn_insert"
-          window.query()
+          setMargin -1 * width * 0.98
+          slideIn "btn_edit"
         else #details
-          setMargin -2 * width
+          setMargin -2 * width * 0.98
           slideIn "result_contact"
 
 
@@ -110,12 +108,12 @@ window.onpopstate = (e) -> # BACK
       switch page
         when "suche"
           true
-        when "insert"
+        when "edit"
           hide "mitfahrgelegenheit"
           hide "details"
-          show "insert"
+          show "edit"
         when "mitfahrgelegenheit"
-          hide "insert"
+          hide "edit"
           hide "details"
           slideOut "result_contact"
           show "mitfahrgelegenheit"
@@ -130,7 +128,7 @@ window.onpopstate = (e) -> # BACK
       switch page
         when "suche"
           setMargin 0
-        when "insert"
+        when "edit"
           show "btn_save"
         when "mitfahrgelegenheit"
           setMargin 0
@@ -138,7 +136,7 @@ window.onpopstate = (e) -> # BACK
         else #details
           setMargin -0.5 * width
           slideIn "result_contact"
-          slideIn "btn_insert"
+          slideIn "btn_edit"
 
 
   else # DESKTOP large screen
@@ -148,7 +146,7 @@ window.onpopstate = (e) -> # BACK
       switch page
         when "suche"
           hide "details"
-        when "insert"
+        when "edit"
           true
         when "mitfahrgelegenheit"
           hide "details"
@@ -159,17 +157,18 @@ window.onpopstate = (e) -> # BACK
           show "details"
 
 
-  last = window.location.pathname.split("/").pop()
-  goTo last # direct link or page refresh
+# direct deep link / page refresh / window resize
+  goTo last = urlify.match window.location.href
 )() # initial function call
 
 
 auto = require "auto-suggest"
-window.from = auto $("from"), "Berlin"
-window.to = auto $("to"), "Freiburg"
+window.API = "http://localhost:5000"
+window.from = auto $("from"), window.API, "Berlin"
+window.to = auto $("to"), window.API, "Freiburg"
 
 
 js = document.createElement "script"
-js.src = "inc/js/m.js"
+js.src = "/inc/js/m.js"
 document.body.appendChild js
 #document.body.insertAdjacentHTML 'beforeend', '<script src="/m/main.js"></script>'
