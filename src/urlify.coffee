@@ -20,7 +20,9 @@ module.exports = (q) ->
 
   fun.match = (url) ->
 
-    if m = url.match /mitfahrgelegenheit\/.+\/.+\/(.+)/
+    if m = url.match /mitfahrgelegenheit\/.+\/.+\/(.+)\/edit/
+      "edit"
+    else if m = url.match /mitfahrgelegenheit\/.+\/.+\/(.+)/
       "details"
     else if m = url.match /mitfahrgelegenheit(\/.+\/.+)/
       "mitfahrgelegenheit"

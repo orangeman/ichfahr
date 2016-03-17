@@ -27,6 +27,8 @@ spec "MATCH URL into query params", (t) ->
 
   t.equal url.match("http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/xy23"), "details"
 
+  t.equal url.match("http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/abc37/edit"), "edit"
+
   t.equal url.match("http://ichfahr.de/"), "suche"
 
   t.end()
