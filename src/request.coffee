@@ -2,7 +2,6 @@
 module.exports =
 
   get: (url, cb) ->
-    console.log url
     request("GET", url, cb).send()
 
   post: (url, cb) ->
