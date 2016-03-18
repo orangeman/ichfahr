@@ -21,12 +21,12 @@ module.exports = (q) ->
   fun.match = (url) ->
 
     if m = url.match /mitfahrgelegenheit\/.+\/.+\/(.+)\/edit/
-      "edit"
+      div: "edit", id: m[1]
     else if m = url.match /mitfahrgelegenheit\/.+\/.+\/(.+)/
-      "details"
+      div: "details", id: m[1]
     else if m = url.match /mitfahrgelegenheit(\/.+\/.+)/
-      "mitfahrgelegenheit"
+      div: "mitfahrgelegenheit", route: m[1]
     else
-      "suche"
+      div: "suche"
 
   fun

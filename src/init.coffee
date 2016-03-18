@@ -23,9 +23,10 @@ findParent = (tag, el) ->
 
 ########   NAV HELPERS   #########
 
-urlify = require("./src/urlify")()
-slideTo = null
 last = null
+slideTo = null
+urlify = require("./src/urlify")()
+window.url = () -> urlify.match window.location.href
 
 url = (page, id) ->
   unless last == page
@@ -74,7 +75,7 @@ window.onpopstate = (e) -> # BACK
   else if last == "contact"
     undim "details"
     $("result_contact_options").className = "result_contact_closed"
-  goTo last = urlify.match window.location.href
+  goTo last = window.url().div
 
 
 
@@ -159,10 +160,9 @@ window.onpopstate = (e) -> # BACK
           show "details"
 
 
-# direct deep link / page refresh / window resize
-  goTo last = urlify.match window.location.href
+# direct deep link  or refresh
+  goTo last = window.url().div
 )() # initial function call
-
 
 
 window.API = "http://pi.sonnenstreifen.de:5000"
