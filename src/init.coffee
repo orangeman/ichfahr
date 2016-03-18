@@ -28,16 +28,16 @@ slideTo = null
 urlify = require("./src/urlify")()
 window.url = () -> urlify.match window.location.href
 
-url = (page, id) ->
-  unless last == page
-    history.pushState {}, last = page, urlify page, id
+url = (div, id) ->
+  unless last == div
+    history.pushState {}, last = div, urlify div, id
 
-goTo = (page) ->
+goTo = (div) ->
   slideOut "result_contact"
   slideOut "btn_edit"
   undim "details"
-  slideTo page
-  show page
+  slideTo div
+  show div
 
 
 
@@ -87,8 +87,8 @@ window.onpopstate = (e) -> # BACK
 
   if width <= 580 # MOBILE small screen
 
-    slideTo = (page) ->
-      switch page
+    slideTo = (div) ->
+      switch div
         when "suche"
           setMargin 0
         when "edit"
@@ -105,8 +105,8 @@ window.onpopstate = (e) -> # BACK
   else if width < 680 # FABLET small landscape
     setMargin 0
 
-    slideTo = (page) ->
-      switch page
+    slideTo = (div) ->
+      switch div
         when "suche"
           true
         when "edit"
@@ -126,8 +126,8 @@ window.onpopstate = (e) -> # BACK
 
   else if width < 900 # TABLET medium screen
 
-    slideTo = (page) ->
-      switch page
+    slideTo = (div) ->
+      switch div
         when "suche"
           setMargin 0
         when "edit"
@@ -144,9 +144,9 @@ window.onpopstate = (e) -> # BACK
 
   else # DESKTOP large screen
 
-    slideTo = (page) ->
+    slideTo = (div) ->
       setMargin 0
-      switch page
+      switch div
         when "suche"
           hide "details"
         when "edit"
