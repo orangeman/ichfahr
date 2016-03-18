@@ -390,7 +390,7 @@
     url("/pix/icons.svg#icn_sms");
 }
 
-.result_contact_mail{
+.result_contact_mailto{
     background-image: url('/pix/icn_mail.png');
     background-image:
     linear-gradient(transparent, transparent)

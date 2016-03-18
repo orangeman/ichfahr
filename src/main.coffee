@@ -8,11 +8,6 @@ $ = (id) -> document.getElementById id
 append document.head, restofcss
 append $("edit"), inserthtml
 
-window.renderDetails = (id) ->
-  console.log "DETAILS " + id
-  append $("details"), detailshtml
-  $("result_contact_options").innerHTML = contactshtml
-
 
 # INITIALIZE MENU BAR
 append document.body, navihtml, "afterbegin"
@@ -37,39 +32,41 @@ window.query = () ->
     return # same query again
   else # new search!
     q.route = route
-  console.log "POST #{q.route} #{q.id}"
+  console.log "POST #{q.route} #{q.id?}"
+  results.innerHTML = ""
   rds.query q, (done) ->
-    results.innerHTML = ""
     console.log "Done POST" # find yourself
-    q.id = done.id
+    window.q = done
+    update done
 
 
+
+# CONNECT TO STREAMING LIFE SOCKET
 js = document.createElement "script"
 js.src = "/inc/js/sockjs-0.3.4.min.js"
 document.body.appendChild js
-
 rds = null # RIDE DATA STORE
 js.onload = () ->
   results = $ "results"
-  # CONNECT TO STREAMING LIFE COMMUNICATION SOCKET
-  rds = require("rds-client") window.API, () ->
-    window.query() # search on re-connect
+  rds = require("../rds-client") window.API, () ->
+    window.query() # search on (re-)connect
   .on (ride) ->
     console.log "FOUND " + JSON.stringify ride
     return alert ride.fail if ride.fail
     remove ride.id
     if ride.status != "deleted"
-      append results, render ride
-      # dirty tmp hack  for direct deep link to details
-      if window.location.pathname.split("/").length == 5
-        window.renderDetails window.location.pathname.split("/")[4]
+      append results, render.row rowhtml, ride
+      update ride
 
-# ONE LIST ROW
-render = (ride) ->
-  [a, weekday, month, day, time] = new Date().toString().match /(\w*)\s(\w*)\s(\d+)\s\d+\s(\d+:\d+):/
-  ride.departure = "#{weekday} #{time}"
-  ride.date = "#{day} #{month}"
-  ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
-  mustache.render rowhtml, ride
+window.renderDetails = (id) ->
+  console.log "DETAILS " + id
+  ride = rds.get id
+  $("details").innerHTML = render.details detailshtml, ride
+  $("result_contact_options").innerHTML = render.contact ride.user
 
-mustache = require "mustache"
+update = (ride) ->
+  if (u = window.url()).div == "details"
+    if u.id == ride.id || window.q.id == ride.id
+      window.renderDetails u.id
+
+render = require "./src/render"

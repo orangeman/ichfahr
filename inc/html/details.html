@@ -1,7 +1,7 @@
 <h2>
     <span>Ich fahr</span> <br>
-    <span>von</span> Berlin <span>nach</span> München <br>
-    <span>am</span> Mo. 11.22.33 <span>um</span> 11:22
+    <span>von</span> {{ from }} <span>nach</span> {{ to }} <br>
+    <span>am</span> {{ date }} <span>um</span> {{ time_label }}
 </h2>
 <table class="result_table_price">
     <tr>
@@ -10,28 +10,8 @@
         <td class="result_table_price_3rd mode3"></td>
     </tr>
 </table>
-<table class="result_table_route">
-    <tr>
-        <td class="result_table_route_1st">Berlin,</td>
-        <td class="result_table_route_2nd">11:22</td>
-        <td class="result_table_route_3rd">0km</td>
-    </tr>
-    <tr>
-        <td class="result_table_route_1st"><b>Potsdam</b>,</td>
-        <td class="result_table_route_2nd">&sim; 11:33</td>
-        <td class="result_table_route_3rd">82km</td>
-    </tr>
-    <tr>
-        <td class="result_table_route_1st"><b>Leipzig</b>,</td>
-        <td class="result_table_route_2nd">&sim; 14:44</td>
-        <td class="result_table_route_3rd">157km</td>
-    </tr>
-    <tr>
-        <td class="result_table_route_1st">München.</td>
-        <td class="result_table_route_2nd">&sim; 17:55</td>
-        <td class="result_table_route_3rd">624km</td>
-    </tr>
-</table>
+<table class="result_table_route">{{{ route_html }}}</table>
+
 <h2>Fahrerdetails:</h2>
 <div class="driver_details">
     <table class="result_table_driver route_table_meta">
