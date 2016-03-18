@@ -1,9 +1,10 @@
-
+# DOM HELPERS
 append = (el, html, wo) -> el.insertAdjacentHTML wo || 'beforeend', html
-remove = (id) -> (e = $(id)).parentNode.removeChild(e) if e
+remove = (id) -> e = $(id); e.parentNode.removeChild(e) if e
 $ = (id) -> document.getElementById id
 
-# INCLUDE REST OF STYLE AND HTML
+
+# INCLUDE EDIT FORM / AND STYLE
 append document.head, restofcss
 append $("edit"), inserthtml
 
@@ -17,13 +18,12 @@ window.renderDetails = (id) ->
 append document.body, navihtml, "afterbegin"
 menus = document.getElementsByClassName("menu_head")
 for menu in menus
-  menu.onclick = (ul) ->
+  menu.onclick = (ul) -># first close all other menus that might be open
     m.classList.remove "open_submenu" for m in menus when m != ul.target
     ul.target.classList.toggle "open_submenu"
     if ul.target.classList.contains "open_submenu"
-      window.dim window.location.pathname.split("/").pop()
-    else
-      window.undim window.location.pathname.split("/").pop()
+      window.dim window.url().div # DimderimDim
+    else window.undim window.url().div
 
 
 
