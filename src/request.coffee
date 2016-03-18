@@ -8,9 +8,11 @@ module.exports =
   post: (url, cb) ->
     p = request("POST", url, cb)
     write: (data) ->
-      p.setRequestHeader "Content-Type", "application/json"
-      p.setRequestHeader "Content-length", data.length
-      p.send data
+      body = ""
+      body += ((k + "=" + encodeURI(v) + "&") for k, v of data).slice 0, -1
+      p.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+      p.setRequestHeader "Content-length", body.length
+      p.send body
 
 
 
