@@ -17,13 +17,14 @@
     <table class="result_table_driver route_table_meta">
         <tr>
             <td><span>Name</span></td>
-            <td class="result_table_driver_2nd">Benutzer Name</td>
+            <td class="result_table_driver_2nd">{{ user.github }}</td>
         </tr>
         <tr>
             <td><span>Registriert am</span></td>
             <td class="result_table_driver_2nd">11.22.33 </td>
         </tr>
     </table>
+    <div><img src="{{ user.avatar }}"></img></div>
     <div class="badgebox">
         <ul class="badges result_info_box">
             <li class="badge badge_handshake tooltip"
