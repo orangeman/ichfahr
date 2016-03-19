@@ -99,7 +99,7 @@ window.onpopstate = (e) -> # BACK
         else #details
           setMargin -2 * width * 0.97
           slideIn "result_contact"
-
+          hide "btn_save"
 
 
   else if width < 680 # FABLET small landscape
@@ -159,10 +159,10 @@ window.onpopstate = (e) -> # BACK
           slideIn "result_contact"
           show "details"
 
-
 # direct deep link  or refresh
   goTo last = window.url().div
 )() # initial function call
+
 
 
 window.API = "http://pi.sonnenstreifen.de:5000"
@@ -173,12 +173,12 @@ complete = (text, render) ->
   http.get "#{window.API}?q=#{encodeURI(text)}", (err, res, names) ->
     render names.split ","
 
-route = window.url().route.match /\/(.*)\/(.*)/ # default values
+route = window.url().route?.match /\/(.*)\/(.*)/ # default values
 window.from = auto $("from"), complete, (route[1] if route)
 window.to = auto $("to"), complete, (route[2] if route)
 
 
-
+# LOAD REST OF THE HTML / CSS / JS
 js = document.createElement "script"
 js.src = "/inc/js/m.js"
 document.body.appendChild js
