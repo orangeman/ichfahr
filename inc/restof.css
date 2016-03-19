@@ -459,35 +459,35 @@
 }
 
 .seats_0{
-    background-image: url('/pix/icn_place_0.png');
+    background-image: url('/pix/icn_seats_0.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place0");
 }
 
 .seats_1{
-    background-image: url('/pix/icn_place_1.png');
+    background-image: url('/pix/icn_seats_1.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place1");
 }
 
 .seats_2{
-    background-image: url('/pix/icn_place_2.png');
+    background-image: url('/pix/icn_seats_2.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place2");
 }
 
 .seats_3{
-    background-image: url('/pix/icn_place_3.png');
+    background-image: url('/pix/icn_seats_3.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place3");
 }
 
 .seats_4{
-    background-image: url('/pix/icn_place_4.png');
+    background-image: url('/pix/icn_seats_4.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place4");
