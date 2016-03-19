@@ -8,13 +8,11 @@ spec "POST RIDE", (s) ->
 
   s.test "respond Bad Request if no ride", (t) ->
     http.post URL + "ride/create", (err, res, body) ->
-      console.log "RESPONSE " +body# JSON.stringify JSON.parse body
       t.equal res.statusCode, 400, "status code"
       t.end()
 
   s.test "respond Unauthorized if no contact", (t) ->
     http.post URL + "ride/create", head, (err, res, body) ->
-      console.log "RESPONSE " + body
       r = JSON.parse body
       t.equal res.statusCode, 401, "status code"
       t.equal r.details, "You must at least provide an email"
@@ -23,15 +21,13 @@ spec "POST RIDE", (s) ->
 
   s.test "respond Accepted if unknown email", (t) ->
     http.post URL + "ride/create", head, (err, res, body) ->
-      console.log "RESPONSE " + body#JSON.stringify JSON.parse body
       t.equal res.statusCode, 202, "status code"
       t.end()
     .write dummyRide email: "newbee42@sonnenstreifen.de"
 
-  s.test "respond Redirect Login if known email", (t) ->
+  s.test "respond Payment Required known email", (t) ->
     http.post URL + "ride/create", head, (err, res, body) ->
-      console.log "RESPONSE " + body#JSON.stringify JSON.parse body
-      t.equal res.statusCode, 202, "status code"
+      t.equal res.statusCode, 402, "status code"
       t.end()
     .write dummyRide email: "regul@a.rr"
 
