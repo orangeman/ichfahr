@@ -27,8 +27,9 @@ module.exports =
     if user?.mobile
       html += mustache.render t, label: "anrufen", k: "tel", v: user.mobile
       html += mustache.render t, label: "sms schicken", k: "sms", v: user.mobile
-    html = "Faben FAIL & PHP Server FAIL :P"
-t = '<li><a href="{{p}}:{{v}}" class="call2action result_contact_{{p}}">{{label}}</a></li>'
+    html = "Faben FAIL & PHP Server FAIL :P" if html == ""
+    html
+t = '<li><a href="{{k}}:{{v}}" class="call2action result_contact_{{p}}">{{label}}</a></li>'
 
 
 route = (ride) ->
