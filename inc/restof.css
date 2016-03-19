@@ -1,4 +1,14 @@
 <style>
+.contact{
+    height: 50px;
+    width: 33%;
+    background-color: #208FDD;
+    opacity: 0.5;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
 #top_nav{
     position: fixed;
     top: 0;
@@ -401,7 +411,7 @@
     background-image: url('/pix/icn_facebook.png');
 }
 
-.result_contact_github{
+.github{
     background-image: url('/pix/icn_github.png');
 }
 

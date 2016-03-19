@@ -19,6 +19,10 @@ $("input_ride_price").oninput = () ->
   rds.query price: q.price = this.value
 $("seats").onchange = (e) ->
   rds.query seats: q.seats = e.target.value
+$("github").onclick = () ->
+  window.open "https://ifoauth.herokuapp.com/auth/github?token=" +
+      rds.token() + "&ride=" + q.id, "Auth", "height=400,width=300"
+
 
 
 # MENU BAR
