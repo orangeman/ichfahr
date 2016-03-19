@@ -1,4 +1,4 @@
-# DOM HELPERS
+# DOM HELP
 append = (el, html, wo) -> el.insertAdjacentHTML wo || 'beforeend', html
 remove = (id) -> e = $(id); e.parentNode.removeChild(e) if e
 $ = (id) -> document.getElementById id
@@ -34,18 +34,16 @@ for menu in menus
 
 
 
-# SEARCH RIDES ..
+# SEARCH RIDES
 q = window.q || {}
 window.query = () ->
   route = "/#{window.from()}/#{window.to()}"
   return unless route.match /\/\w+\/\w+/
   if route == q.route # no search same
-    console.log "return"
     return # same query again
   else # new search!
     q.route = route
   console.log "POST #{q.route} #{q.id?}"
-  results.innerHTML = ""
   rds.query q, (done) ->
     console.log "Done POST" # find yourself
     window.q = done
@@ -53,7 +51,7 @@ window.query = () ->
 
 
 
-# CONNECT TO STREAMING LIFE SOCKET
+# STREAMING LIFE SOCKET
 js = document.createElement "script"
 js.src = "/inc/js/sockjs-0.3.4.min.js"
 document.body.appendChild js
@@ -65,10 +63,10 @@ js.onload = () ->
   .on (ride) ->
     console.log "FOUND " + JSON.stringify ride
     return alert ride.fail if ride.fail
-    remove ride.id
-    if ride.status != "deleted"
-      append results, render.row rowhtml, ride
-      update ride
+    results.innerHTML = ""
+    for r in rds.sort "dep"
+      append results, render.row rowhtml, r
+    update ride
 
 window.renderDetails = (id) ->
   console.log "DETAILS " + id
