@@ -6,7 +6,12 @@ $ = (id) -> document.getElementById id
 
 # INCLUDE EDIT FORM / AND STYLE
 append document.head, restofcss
-append $("edit"), inserthtml
+append $("edit"), edithtml
+$("input_ride_price").oninput = () ->
+  rds.query price: q.price = this.value
+$("seats").onchange = (e) ->
+  rds.query seats: q.seats = e.target.value
+
 
 
 # INITIALIZE MENU BAR
