@@ -256,6 +256,13 @@ h2{
     margin-right: 10px;
 }
 
+.resultlist_user{
+  height: 40px;
+  width: 40px;
+  top: 5px;
+  right: 100px;
+}
+
 .resultlist_mode,
 .resultlist_seats{
     position: absolute;
