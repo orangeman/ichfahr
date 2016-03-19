@@ -8,7 +8,7 @@ module.exports = (q) ->
   fun = (page, id) ->
 
     switch page
-      when "suche"
+      when "start"
         BASE
       when "mitfahrgelegenheit"
         BASE + page + q.route
@@ -27,6 +27,6 @@ module.exports = (q) ->
     else if m = url.match /mitfahrgelegenheit(\/.+\/.+)/
       div: "mitfahrgelegenheit", route: m[1]
     else
-      div: "suche"
+      div: "start"
 
   fun

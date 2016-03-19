@@ -93,9 +93,9 @@ h2{
 
 
 
-/*///// STARTSEITE SUCHE*/
+/*///// STARTSEITE start*/
 
-#suche{
+#start{
     position: relative;
     width: 100%;
     z-index: 1;
@@ -415,7 +415,7 @@ h2{
 
 @media screen and (max-width: 580px) /* Mobile */ {
 
-    #suche,#details,#mitfahrgelegenheit,#edit{
+    #start,#details,#mitfahrgelegenheit,#edit{
         width: 100%;
         position: absolute;
         max-width: 100%;
@@ -437,12 +437,12 @@ h2{
     body {
         background: blue;
     }
-    #suche,#details,#mitfahrgelegenheit,#details{
+    #start,#details,#mitfahrgelegenheit,#details{
         position: absolute;
         left: 0;
         top: 0;
     }
-    #suche,#result_contact{
+    #start,#result_contact{
         width: 38%;
     }
     #mitfahrgelegenheit,#details,#edit{
@@ -457,7 +457,7 @@ h2{
     body {
         background: #004565;
     }
-    #suche,#details,#mitfahrgelegenheit,#details,#edit{
+    #start,#details,#mitfahrgelegenheit,#details,#edit{
         width: 50%;
         position: absolute;
         max-width: 50%;
@@ -482,7 +482,7 @@ h2{
     body {
         background: red;
     }
-    #suche,#details,#mitfahrgelegenheit,#details,#edit{
+    #start,#details,#mitfahrgelegenheit,#details,#edit{
         width: 33%;
         position: absolute;
         max-width: 33%;

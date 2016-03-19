@@ -89,7 +89,7 @@ window.onpopstate = (e) -> # BACK
 
     slideTo = (div) ->
       switch div
-        when "suche"
+        when "start"
           setMargin 0
         when "edit"
           true
@@ -107,7 +107,7 @@ window.onpopstate = (e) -> # BACK
 
     slideTo = (div) ->
       switch div
-        when "suche"
+        when "start"
           true
         when "edit"
           hide "mitfahrgelegenheit"
@@ -128,7 +128,7 @@ window.onpopstate = (e) -> # BACK
 
     slideTo = (div) ->
       switch div
-        when "suche"
+        when "start"
           setMargin 0
         when "edit"
           show "btn_save"
@@ -147,7 +147,7 @@ window.onpopstate = (e) -> # BACK
     slideTo = (div) ->
       setMargin 0
       switch div
-        when "suche"
+        when "start"
           hide "details"
         when "edit"
           true
