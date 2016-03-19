@@ -386,7 +386,6 @@ h2{
     position: relative;
     padding: 60px 10px;
     display: none;
-    top: 240px;
 }
 
 .btn_irgendwiegal{
@@ -430,7 +429,7 @@ h2{
         left: 200%;
     }
     #edit{
-        top: 240px;
+        top: 304px;
     }
 }
 @media screen and (min-width: 580px) /* Fablet */ {
@@ -475,7 +474,7 @@ h2{
         left: 50%
     }
     #edit{
-        top: 240px;
+        top: 304px;
     }
 }
 @media screen and (min-width: 900px) /* Desktop */ {
@@ -500,6 +499,6 @@ h2{
         left: 33%
     }
     #edit{
-        top: 240px;
+        top: 304px;
     }
 }

@@ -5,7 +5,7 @@ parse = (t) -> new Date(t).toString().match /(\w*)\s(\w*)\s(\d+)\s(\d+)\s(\d+:\d
 module.exports =
 
   row: (html, ride) -> # search results
-    [a, weekday, month, day, year, time] = parse ride.time
+    [a, weekday, month, day, year, time] = parse ride.dep
     ride.departure = "#{weekday} #{time}"
     ride.date = "#{day} #{month}"
     ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
@@ -13,8 +13,7 @@ module.exports =
 
 
   details: (html, ride) ->
-    console.log "details " +  JSON.stringify ride
-    [a, weekday, month, day, year, time] = parse ride.time
+    [a, weekday, month, day, year, time] = parse ride.dep
     ride.date = "#{day} #{month} #{year}"
     ride.time_label = time
     ride.route_html = route ride
@@ -28,6 +27,7 @@ module.exports =
     if user?.mobile
       html += mustache.render t, label: "anrufen", k: "tel", v: user.mobile
       html += mustache.render t, label: "sms schicken", k: "sms", v: user.mobile
+    html = "Faben FAIL & PHP Server FAIL :P"
 t = '<li><a href="{{p}}:{{v}}" class="call2action result_contact_{{p}}">{{label}}</a></li>'
 
 
