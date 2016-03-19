@@ -8,26 +8,29 @@ spec "POST RIDE", (s) ->
 
   s.test "respond Bad Request if no ride", (t) ->
     http.post URL + "ride/create", (err, res, body) ->
-      t.equal res.statusCode, 400, "status code 400 " + body
+      t.equal res.statusCode, 400, "status code 400"
       t.end()
 
   s.test "respond Unauthorized if no contact", (t) ->
     http.post URL + "ride/create", head, (err, res, body) ->
       r = JSON.parse body
-      t.equal res.statusCode, 401, "status code 401 " + body
-      t.equal r.details, "You must at least provide an email"
+      t.equal res.statusCode, 401, "status code 401"
+      t.equal r.details, "You must at least provide an email", "You must at least provide an email"
       t.end()
     .write dummyRide()
 
   s.test "respond Accepted if unknown email", (t) ->
     http.post URL + "ride/create", head, (err, res, body) ->
-      t.equal res.statusCode, 202, "status code 202 " + body
+      t.equal res.statusCode, 202, "status code 202"
       t.end()
     .write dummyRide email: "newbee42@sonnenstreifen.de"
 
   s.test "respond Payment Required known email", (t) ->
     http.post URL + "ride/create", head, (err, res, body) ->
-      t.equal res.statusCode, 402, "status code 402 " + body
+      r = JSON.parse body
+      t.equal res.statusCode, 402, "status code 402"
+      t.equal r.message, "Awesome Dude", "Awesome Dude"
+      t.equal r.details, "Welcome back, you owe us a beer!", "Welcome back, you owe us a beer!"
       t.end()
     .write dummyRide email: "regul@a.rr"
 
