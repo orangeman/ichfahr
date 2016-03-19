@@ -135,13 +135,13 @@
     opacity: 0.7;
 }
 
-.new_places_ul,
+.seats_ul,
 .new_mode_ul{
     width: 100%;
     height: 50px;
 }
 
-.new_places{
+.seats{
     position: relative;
     width: 20%;
     height: 50px;
@@ -458,35 +458,35 @@
     url("/pix/icons.svg#icn_motorbike");
 }
 
-.places0{
+.seats_0{
     background-image: url('/pix/icn_place_0.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place0");
 }
 
-.places1{
+.seats_1{
     background-image: url('/pix/icn_place_1.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place1");
 }
 
-.places2{
+.seats_2{
     background-image: url('/pix/icn_place_2.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place2");
 }
 
-.places3{
+.seats_3{
     background-image: url('/pix/icn_place_3.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_place3");
 }
 
-.places4{
+.seats_4{
     background-image: url('/pix/icn_place_4.png');
     background-image:
     linear-gradient(transparent, transparent)
