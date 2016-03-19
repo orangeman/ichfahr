@@ -4,7 +4,15 @@ remove = (id) -> e = $(id); e.parentNode.removeChild(e) if e
 $ = (id) -> document.getElementById id
 
 
-# INCLUDE EDIT FORM / AND STYLE
+# DATE PICK
+append document.head, datepickcss
+pick = require("./inc/js/vanilla.datepicker")
+date = (d) -> rds.query dep: Date.parse d
+pick "#date", {outputFormat:'%A, %d %B %Y'}, date
+$("date").oninput = (e) -> date this.value
+
+
+# EDIT FORM
 append document.head, restofcss
 append $("edit"), edithtml
 $("input_ride_price").oninput = () ->
@@ -13,8 +21,7 @@ $("seats").onchange = (e) ->
   rds.query seats: q.seats = e.target.value
 
 
-
-# INITIALIZE MENU BAR
+# MENU BAR
 append document.body, navihtml, "afterbegin"
 menus = document.getElementsByClassName("menu_head")
 for menu in menus

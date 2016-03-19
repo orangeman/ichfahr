@@ -9,6 +9,7 @@ build (i) ->
 build (m) ->
   #FILES AS STRING VARS
   m.inline "inc/restof.css"
+  m.inline "inc/datepick.css"
   m.inline "inc/html/row.html"
   m.inline "inc/html/navi.html"
   m.inline "inc/html/edit.html"
