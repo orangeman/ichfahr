@@ -11,7 +11,7 @@ build (m) ->
   m.inline "inc/restof.css"
   m.inline "inc/html/row.html"
   m.inline "inc/html/navi.html"
-  m.inline "inc/html/insert.html"
+  m.inline "inc/html/edit.html"
   m.inline "inc/html/details.html"
   m.append "src/main.coffee"
   m.browserify "inc/js/m.js"#, mini: true
