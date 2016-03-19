@@ -46,7 +46,7 @@ window.query = () ->
   console.log "POST #{q.route} #{q.id?}"
   rds.query q, (done) ->
     console.log "Done POST" # find yourself
-    window.q = done
+    window.q = q = done
     update done
 
 
