@@ -19,5 +19,6 @@ request = (method, url, cb) ->
   xhr = new XMLHttpRequest?() || new ActiveXObject('Microsoft.XMLHTTP')
   xhr.open method, url
   xhr.onreadystatechange = () ->
-    cb xhr.readyState > 3, statusCode: xhr.status, xhr.responseText
+    if xhr.readyState > 3
+      cb null, statusCode: xhr.status, xhr.responseText
   xhr
