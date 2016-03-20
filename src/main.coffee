@@ -82,7 +82,7 @@ window.renderDetails = (id) ->
   ride = rds.get id
   $("details").innerHTML = render.details detailshtml, ride
   $("result_contact_options").innerHTML = render.contact ride.user
-  window.showMap q, ride
+  window.showMap? q, ride
 
 update = (ride) ->
   if (u = window.url()).div == "details"
