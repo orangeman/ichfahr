@@ -502,6 +502,12 @@ h2{
         display: block;
         left: 67%;
     }
+    #map {
+      width:33%;
+      left: 67%;
+      height:99%;
+      display: none;
+    }
     #result_contact{
         left: 33%
     }

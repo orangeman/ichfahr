@@ -143,21 +143,30 @@ window.onpopstate = (e) -> # BACK
 
 
   else # DESKTOP large screen
+    map = "yay"
 
     slideTo = (div) ->
       setMargin 0
       switch div
         when "start"
+          hide "map"
           hide "details"
         when "edit"
-          true
+          hide "map"
         when "mitfahrgelegenheit"
+          hide "map"
           hide "details"
           slideOut "result_contact"
         else #details
           setMargin -0.33 * width
           slideIn "result_contact"
           show "details"
+          setTimeout (() ->
+            show "map"
+            map.invalidateSize()
+          ), 500
+
+    require("./src/vision") (m) -> map = m
 
 # direct deep link  or refresh
   goTo last = window.url().div
