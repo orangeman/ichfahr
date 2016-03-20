@@ -455,7 +455,7 @@
 }
 
 .mode6{
-    background-image: url('/pix/icn_plain.png');
+    background-image: url('/pix/icn_plane.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_plain");
