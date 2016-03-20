@@ -17,7 +17,7 @@ module.exports = (cb) ->
     m = document.createElement "div"
     m.id = "map"
     document.body.appendChild m
-    map = L.map(m).setView [48.505, 9.09], 10
+    map = L.map(m).setView [48.13743, 11.57549], 10
     #map.invalidateSize()
 
     L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}',
@@ -29,4 +29,86 @@ module.exports = (cb) ->
     ).addTo map
     #L.control.zoom(position: "bottomright").addTo map
 
+    Leaf = L.Icon.extend
+      options:
+        shadowUrl: '/pix/leaf-shadow.png'
+        iconSize:     [38, 95]
+        shadowSize:   [50, 64]
+        iconAnchor:   [22, 94]
+        shadowAnchor: [4, 62]
+
+    leaf = (place, icon, cb) ->
+      console.log "  draw leaf " + place
+      get place, (p) ->
+        console.log "   leaf " + place
+        L.marker(JSON.parse(p), icon: new Leaf iconUrl: icon).addTo(map);
+        cb() if cb
+
+    path = (route, style, cb) ->
+      console.log "  draw path " + route
+      get route, (p) ->
+        console.log "   path " + route
+        area.push coords = decode p
+        l = L.geoJson().addTo map
+        l.options = style: style
+        l.addData
+          type: "LineString"
+          coordinates: coords
+        cb() if cb
+
+    area = []
+    panAndZoom = () ->
+        bbx = [[99999999, 99999999], [0, 0]]
+        for coords in area
+          for ll in coords
+            bbx[0][0] = ll[1] if ll[1] < bbx[0][0]
+            bbx[0][1] = ll[0] if ll[0] < bbx[0][1]
+            bbx[1][0] = ll[1] if ll[1] > bbx[1][0]
+            bbx[1][1] = ll[0] if ll[0] > bbx[1][1]
+        console.log "BBX " + JSON.stringify bbx
+        map.fitBounds bbx
+
+    window.showMap = (passenger, driver) ->
+      [driver, passeneger] = [passenger, driver] if driver.passenger
+      map.eachLayer (l) -> map.removeLayer l unless l.getAttribution
+      console.log "draw " + driver.route + " via " + passenger.route
+
+      area = []
+      pickup = "/#{driver.from}/#{passenger.from}" if driver.from != passenger.from
+      dropoff = "/#{driver.to}/#{passenger.to}" if driver.to != passenger.to
+      path driver.route, color: "#004565", weight: 9, opacity: 1
+      path pickup, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1 if pickup
+      path dropoff, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1 if dropoff
+      path passenger.route, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1, () ->
+        console.log "driver drawn"
+        leaf driver.from, "/pix/leaf-green.png"
+        leaf driver.from, "/pix/leaf-red.png"
+        leaf passenger.from, "/pix/leaf-orange.png"
+        leaf passenger.to, "/pix/leaf-orange.png", () ->
+          console.log "icons drawn"
+          path passenger.route, color: "#ffcc00", weight: 3, opacity: 1, () ->
+            console.log "passenger drawn"
+            panAndZoom()
+
+    map.reAdjust = () ->
+      map.invalidateSize()
+      panAndZoom()
+
     cb map
+
+
+
+Cache = {}
+get = (p, cb) ->
+  console.log "    get " + p
+  if Cache[p]
+    console.log "     cache"
+    cb Cache[p]
+  else
+    what = if p.split("/").length > 1 then "/path" else "/place/"
+    console.log "     request " + what
+    window.http.get window.API + what + p, (e, r, b) ->
+      console.log "P " + r.statusCode + " :: " + b
+      cb Cache[p] = b if b
+
+decode = require "../inc/js/decode"

@@ -163,8 +163,9 @@ window.onpopstate = (e) -> # BACK
           show "details"
           setTimeout (() ->
             show "map"
-            map.invalidateSize()
-          ), 500
+            console.log "INVALIDATE"
+            map.reAdjust()
+          ), 450
 
     require("./src/vision") (m) -> map = m
 
@@ -175,7 +176,7 @@ window.onpopstate = (e) -> # BACK
 
 
 window.API = "http://pi.sonnenstreifen.de:5000"
-http = require "./src/request"
+window.http = http = require "./src/request"
 auto = require "auto-suggest"
 
 complete = (text, render) ->
