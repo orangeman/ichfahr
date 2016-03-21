@@ -1,44 +1,75 @@
 #ecstatic = require("ecstatic")(".", cache: "no-cache")
 url = require("./src/urlify")()
+es = require "event-stream"
 http = require "http-proxy"
 request = require "request"
 connect = require "connect"
 tralala = require "harmon"
-fs = require "fs"
+detailshtml = require("fs").readFileSync("inc/html/details.html").toString()
+rowhtml = require("fs").readFileSync("inc/html/row.html").toString()
+JSONStream = require "JSONStream"
+render = require "./src/render"
 
-SONNE = "http://pi.sonnenstreifen.de/"
+SONNE = "http://pi.sonnenstreifen.de"
 proxy = http.createProxyServer()
 FORWARD = SONNE + "ichfahr/"
+API = SONNE + ":5000"
 
-# LOCAL TEST SERVER
+# LOCAL TEST & DEVELOP SERVER
 if process.argv[2] == "local"
-  FORWARD = "http://localhost:5555/"
-  require("http").createServer(require("ecstatic")("./")).listen 5555
+  FORWARD = "http://localhost:1234/"
+  require("http").createServer(
+    require("ecstatic") "./",
+    cache: "no-cache"
+  ).listen 5555
 
-
-
-# MIX AND MERGE STREAMS
-Trompete = tralala [], [
-  query: "#edit"
+# MIX AND MASH UP HTML
+trompete = tralala [], [
+  { query: "#edit"
   func: (dom, req, res) ->
-    request(req.edit_form).pipe dom.createWriteStream()
-], true
+    if req.form
+      console.log "EDIT"
+      request req.form
+      .pipe dom.createWriteStream()},
+  { query: "#results"
+  func: (dom, req, res) ->
+    console.log "RESULTS"
+    request API + req.u.route, headers: "Accept": "stream/json"
+    .pipe JSONStream.parse()
+    .pipe es.map (ride, cb) ->
+      if ride.id == req.u.id
+        req.ride = ride
+      cb 0, render.row rowhtml, ride
+    .pipe dom.createWriteStream()},
+  { query: "#details"
+  func: (dom, req, res) ->
+    if req.ride
+      console.log "DETAILS"
+      r = req.u.route.split("/")
+      dom.createWriteStream()
+      .end render.details detailshtml,
+        from: r[1], to: r[2], req.ride
+}]
 
 # STREAM HTML INTO STREAMING HTML
 connect().use (req, res, next) ->
-  switch (u = url.match(req.url)).div
-    when "edit"
-      token = req.url.split("/").pop()
-      req.edit_form = SONNE + "auth/ride/edit/#{u.id}/#{token}"
-      Trompete(req, res, next)
-    else next()
-
-# FORWARD REQUESTS
-.use (req, res) ->
   if m = req.url.match /\/(inc\/.*\.css|inc\/js\/.*\.js|pix\/.*\.png|inc\/font\/.*)/
     req.url = m[1]
+    proxy.web req, res, target: FORWARD
   else
-    req.url = "index.html"
+    delete req.headers["if-modified-since"]
+    delete req.headers["if-none-match"]
+    req.u = url.match(req.url)
+    switch req.u.div
+      when "edit"
+        req.form = SONNE + "/auth/ride/edit/" +
+          req.u.id + "/" + req.url.split("/").pop()
+      when "start"
+        return next()
+    trompete(req, res, next)
+
+.use (req, res) ->
+  req.url = "index.html"
   proxy.web req, res, target: FORWARD
 
 .listen 4242
