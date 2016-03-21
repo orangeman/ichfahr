@@ -146,7 +146,7 @@
 }
 
 .seats_ul,
-.new_mode_ul{
+.mode_ul{
     width: 100%;
     height: 50px;
 }
@@ -158,7 +158,7 @@
     float: left;
 }
 
-.new_mode{
+.mode{
     width: 14.286%;
     position: relative;
     height: 50%;
@@ -419,53 +419,53 @@
     background-image: url('/pix/icn_soundcloud.png');
 }
 
-.mode1{
+.mode_1{
     background-image: url('/pix/icn_car.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_car");
 }
 
-.mode2{
+.mode_2{
+    background-image: url('/pix/icn_motorbike.png');
+    background-image:
+    linear-gradient(transparent, transparent)
+    url("/pix/icons.svg#icn_motorbike");
+}
+
+.mode_4{
     background-image: url('/pix/icn_bus.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_bus");
 }
 
-.mode3{
+.mode_16{
     background-image: url('/pix/icn_train.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_train");
 }
 
-.mode4{
+.mode_32{
     background-image: url('/pix/icn_truck.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_truck");
 }
 
-.mode5{
+.mode_64{
     background-image: url('/pix/icn_boat.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_boat");
 }
 
-.mode6{
+.mode_128{
     background-image: url('/pix/icn_plane.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_plain");
-}
-
-.mode7{
-    background-image: url('/pix/icn_motorbike.png');
-    background-image:
-    linear-gradient(transparent, transparent)
-    url("/pix/icons.svg#icn_motorbike");
 }
 
 .seats_0{
