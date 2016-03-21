@@ -69,7 +69,8 @@ document.body.appendChild js
 rds = null # RIDE DATA STORE
 js.onload = () ->
   results = $ "results"
-  rds = require("rds-client") window.API, () ->
+  sock = new SockJS(window.API + "/sockjs")
+  rds = require("rds-client") sock, () ->
     window.query() # search on (re-)connect
   .on (ride) ->
     console.log "FOUND " + JSON.stringify ride
