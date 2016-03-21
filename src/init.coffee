@@ -29,7 +29,7 @@ urlify = require("./src/urlify")()
 window.url = () -> urlify.match window.location.href
 
 url = (div, id) ->
-  unless last == div
+  unless last == div && div != "details"
     history.pushState {}, last = div, urlify div, id
 
 goTo = (div) ->
@@ -153,6 +153,7 @@ window.onpopstate = (e) -> # BACK
           hide "details"
         when "edit"
           hide "map"
+          show "mitfahrgelegenheit"
         when "mitfahrgelegenheit"
           hide "map"
           hide "details"

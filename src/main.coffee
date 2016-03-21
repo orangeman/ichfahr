@@ -55,7 +55,7 @@ window.query = () ->
   else # new search!
     q.route = route
   console.log "POST #{q.route} #{q.id?}"
-  rds.query q, (done) ->
+  rds.query route: route, status: "published", (done) ->
     console.log "Done POST" # find yourself
     window.q = q = done
     update done
@@ -69,7 +69,8 @@ document.body.appendChild js
 rds = null # RIDE DATA STORE
 js.onload = () ->
   results = $ "results"
-  rds = require("rds-client") window.API, () ->
+  sock = new SockJS(window.API + "/sockjs")
+  rds = require("rds-client") sock, () ->
     window.query() # search on (re-)connect
   .on (ride) ->
     console.log "FOUND " + JSON.stringify ride
@@ -80,8 +81,8 @@ js.onload = () ->
     update ride
 
 window.renderDetails = (id) ->
-  console.log "DETAILS " + id
   ride = rds.get id
+  console.log "DETAILS " + id #+ " :: " + JSON.stringify ride
   $("details").innerHTML = render.details detailshtml, q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
   window.showMap? q, ride

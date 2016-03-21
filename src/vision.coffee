@@ -39,16 +39,16 @@ module.exports = (cb) ->
 
     leaf = (place, icon, cb) ->
       console.log "  draw leaf " + place
-      get place, (p) ->
-        console.log "   leaf " + place
-        L.marker(JSON.parse(p), icon: new Leaf iconUrl: icon).addTo(map);
+      get place, (pl) ->
+        console.log "   leaf " + pl
+        L.marker(JSON.parse(pl), icon: new Leaf iconUrl: icon).addTo(map);
         cb() if cb
 
     path = (route, style, cb) ->
       console.log "  draw path " + route
-      get route, (p) ->
+      get route, (path) ->
         console.log "   path " + route
-        area.push coords = decode p
+        area.push coords = decode path
         l = L.geoJson().addTo map
         l.options = style: style
         l.addData
@@ -69,7 +69,7 @@ module.exports = (cb) ->
         map.fitBounds bbx
 
     window.showMap = (passenger, driver) ->
-      [driver, passeneger] = [passenger, driver] if driver.passenger
+      [driver, passenger] = [passenger, driver] if driver.passenger
       map.eachLayer (l) -> map.removeLayer l unless l.getAttribution
       console.log "draw " + driver.route + " via " + passenger.route
 

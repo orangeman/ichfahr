@@ -21,7 +21,7 @@ if process.argv[2] == "local"
   require("http").createServer(
     require("ecstatic") "./",
     cache: "no-cache"
-  ).listen 5555
+  ).listen 1234
 
 # MIX AND MASH UP HTML
 trompete = tralala [], [
@@ -74,4 +74,4 @@ connect().use (req, res, next) ->
 
 .listen 4242
 
-process.on "uncaughtException", (err) -> console.log "ERROR: " + err 
+process.on "uncaughtException", (err) -> console.log "ERROR: " + err
