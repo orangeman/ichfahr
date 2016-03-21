@@ -15,7 +15,7 @@ $("date").oninput = (e) -> date this.value
 # EDIT FORM
 BASE = "http://pi.sonnenstreifen.de/auth/"
 append document.head, restofcss
-window.http.get BASE + "ride/new", (e, r, html) ->
+window.http.get BASE + "ride/empty_form", (e, r, html) ->
   append $("edit"), html
   $("input_ride_price").oninput = () ->
     rds.query price: q.price = this.value
