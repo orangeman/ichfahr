@@ -146,7 +146,7 @@
 }
 
 .seats_ul,
-.new_mode_ul{
+.mode_ul{
     width: 100%;
     height: 50px;
 }
@@ -158,7 +158,7 @@
     float: left;
 }
 
-.new_mode{
+.mode{
     width: 14.286%;
     position: relative;
     height: 50%;
