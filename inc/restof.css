@@ -220,19 +220,28 @@
     margin-bottom: 10px;
 }
 
-.result_table_route_1st{
-    width: 50%;
-}
-
-.result_table_route_2nd{
-    width: 30%;
+.result_table_route_duration{
+    padding-right: 5px;
     text-align: right;
-}
-
-.result_table_route_3rd{
     width: 20%;
+}
+.result_table_route_distance{
+    padding-right: 5px;
     text-align: right;
     color: #208fdd;
+    width: 15%;
+}
+.result_table_route_place{
+    width: 30%;
+}
+.result_table_route_time{
+    text-align: right;
+    width: 20%;
+}
+.result_table_route_total{
+    text-align: right;
+    color: #208fdd;
+    width: 15%;
 }
 
 .driver_details{
