@@ -419,49 +419,49 @@
     background-image: url('/pix/icn_soundcloud.png');
 }
 
-.mode1{
+.mode_1{
     background-image: url('/pix/icn_car.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_car");
 }
 
-.mode2{
+.mode_2{
     background-image: url('/pix/icn_bus.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_bus");
 }
 
-.mode3{
+.mode_3{
     background-image: url('/pix/icn_train.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_train");
 }
 
-.mode4{
+.mode_4{
     background-image: url('/pix/icn_truck.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_truck");
 }
 
-.mode5{
+.mode_5{
     background-image: url('/pix/icn_boat.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_boat");
 }
 
-.mode6{
+.mode_6{
     background-image: url('/pix/icn_plane.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_plain");
 }
 
-.mode7{
+.mode_7{
     background-image: url('/pix/icn_motorbike.png');
     background-image:
     linear-gradient(transparent, transparent)
