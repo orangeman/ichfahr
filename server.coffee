@@ -12,7 +12,7 @@ render = require "./src/render"
 
 SONNE = "http://pi.sonnenstreifen.de"
 proxy = http.createProxyServer()
-FORWARD = SONNE + "ichfahr/"
+FORWARD = SONNE + "/ichfahr/"
 API = SONNE + ":5000"
 
 # LOCAL TEST & DEVELOP SERVER
@@ -34,7 +34,7 @@ trompete = tralala [], [
   { query: "#results"
   func: (dom, req, res) ->
     console.log "RESULTS"
-    request API + req.u.route, headers: "Accept": "stream/json"
+    request API + req.u.route, headers: "accept": "stream/json"
     .pipe JSONStream.parse()
     .pipe es.map (ride, cb) ->
       if ride.id == req.u.id
