@@ -171,8 +171,7 @@ window.onpopstate = (e) -> # BACK
 
 # direct deep link  or refresh
   goTo last = window.url().div
-)() # initial function call
-
+)()
 
 
 window.API = "http://pi.sonnenstreifen.de:5000"
@@ -187,6 +186,8 @@ route = window.url().route?.match /\/(.*)\/(.*)/ # default values
 window.from = auto $("from"), complete, (route[1] if route)
 window.to = auto $("to"), complete, (route[2] if route)
 
+# animate after initial resize
+$("wrapper").className = "sliding"
 
 # LOAD REST OF THE HTML / CSS / JS
 js = document.createElement "script"
