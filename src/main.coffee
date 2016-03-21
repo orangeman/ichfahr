@@ -80,7 +80,7 @@ js.onload = () ->
 window.renderDetails = (id) ->
   console.log "DETAILS " + id
   ride = rds.get id
-  $("details").innerHTML = render.details detailshtml, ride
+  $("details").innerHTML = render.details detailshtml, q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
   window.showMap? q, ride
 

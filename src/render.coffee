@@ -12,11 +12,11 @@ module.exports =
     mustache.render html, ride # row.html
 
 
-  details: (html, ride) ->
+  details: (html, q, ride) ->
     [a, weekday, month, day, year, time] = parse ride.dep
     ride.date = "#{day} #{month} #{year}"
     ride.time_label = time
-    ride.route_html = route ride
+    ride.route_html = route q, ride
     mustache.render html, ride
 
 
@@ -32,17 +32,17 @@ module.exports =
 t = '<li><a href="{{k}}:{{v}}" class="call2action result_contact_{{p}}">{{label}}</a></li>'
 
 
-route = (ride) ->
+route = (q, ride) ->
   html = ""
   d = ride
-  p = window.q
+  p = q
   return unless d.id && p.id
   if ride.passenger
-    d = window.q
+    d = q
     p = ride
   tt = (timestamp) -> parse(timestamp)[5]
   bold = (place) -> () -> (text, render) ->
-    if place == window.q.from || place == window.q.to
+    if place == q.from || place == q.to
       "<b>" + render(text) + "</b>"
     else render text
   way = [place: d.from, dist: 0, time: tt(d.dep), bold: bold(d.from)]
