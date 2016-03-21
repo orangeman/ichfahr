@@ -30,7 +30,11 @@ window.http.get BASE + "ride/empty_form", (e, r, html) ->
   $("description").oninput = () ->
     rds.query details: q.details = this.value
 
-
+  $("btn_save").onclick = () ->
+    console.log "click"
+    window.http.post BASE + "ride/create", (e, r, body) ->
+      console.log "und alle so yeah"
+    .write q
 
 # MENU BAR
 append document.body, navihtml, "afterbegin"
