@@ -73,3 +73,5 @@ connect().use (req, res, next) ->
   proxy.web req, res, target: FORWARD
 
 .listen 4242
+
+process.on "uncaughtException", (err) -> console.log "ERROR: " + err 
