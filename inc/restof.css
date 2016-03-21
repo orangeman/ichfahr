@@ -427,45 +427,45 @@
 }
 
 .mode_2{
+    background-image: url('/pix/icn_motorbike.png');
+    background-image:
+    linear-gradient(transparent, transparent)
+    url("/pix/icons.svg#icn_motorbike");
+}
+
+.mode_4{
     background-image: url('/pix/icn_bus.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_bus");
 }
 
-.mode_3{
+.mode_16{
     background-image: url('/pix/icn_train.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_train");
 }
 
-.mode_4{
+.mode_32{
     background-image: url('/pix/icn_truck.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_truck");
 }
 
-.mode_5{
+.mode_64{
     background-image: url('/pix/icn_boat.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_boat");
 }
 
-.mode_6{
+.mode_128{
     background-image: url('/pix/icn_plane.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_plain");
-}
-
-.mode_7{
-    background-image: url('/pix/icn_motorbike.png');
-    background-image:
-    linear-gradient(transparent, transparent)
-    url("/pix/icons.svg#icn_motorbike");
 }
 
 .seats_0{
