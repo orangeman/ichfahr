@@ -13,20 +13,22 @@ $("date").oninput = (e) -> date this.value
 
 
 # EDIT FORM
+BASE = "http://pi.sonnenstreifen.de/auth/"
 append document.head, restofcss
-append $("edit"), edithtml
-$("input_ride_price").oninput = () ->
-  rds.query price: q.price = this.value
-$("seats").onchange = (e) ->
-  rds.query seats: q.seats = e.target.value
-$("mode").onchange = (e) ->
-  console.log "MODE " + e.target.value
-  rds.query mode: q.mode = e.target.value
-$("github").onclick = () ->
-  window.open "https://ifoauth.herokuapp.com/auth/github?token=" +
+window.http.get BASE + "ride/new", (e, r, html) ->
+  append $("edit"), html
+  $("input_ride_price").oninput = () ->
+    rds.query price: q.price = this.value
+  $("seats").onchange = (e) ->
+    rds.query seats: q.seats = e.target.value
+  $("mode").onchange = (e) ->
+    console.log "MODE " + e.target.value
+    rds.query mode: q.mode = e.target.value
+  $("github").onclick = () ->
+    window.open "https://ifoauth.herokuapp.com/auth/github?token=" +
       rds.token() + "&ride=" + q.id, "Auth", "height=400,width=300"
-$("description").oninput = () ->
-  rds.query details: q.details = this.value
+  $("description").oninput = () ->
+    rds.query details: q.details = this.value
 
 
 
