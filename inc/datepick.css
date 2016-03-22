@@ -3,42 +3,47 @@
 @CHARSET "UTF-8";
 
 .vanilla-datepicker {
-    background:#272727;
-    border:solid 1px #979797;
-    border-radius:3px;
-    color:#DDDDDD;
-    font-size: 13px;
-    position: absolute;
-    width:200px;
-    z-index: 5000;
+    position: fixed!important;
+    top: 50px;
+    left: 0;
+    width:100%;
+    height: 100%;
+    padding: 10px;
+    background: #004565;
+    z-index: 9999;
 }
 .vanilla-datepicker > .title-nav {
-    align-items:center;
-    background:#222;
-    border:solid 1px #979797;
-    border-radius:3px;
-    display:flex;
-    flex-direction:row;
-    font-weight:bold;
-    justify-content:space-between;
-    margin:2px;
+    position: relative;
+    background: rgba(0,0,0,0.2);
+    height: 50px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
     width:auto;
 }
 .vanilla-datepicker > .title-nav > .month-navigate,
 .vanilla-datepicker > .title-nav > .year-navigate {
-    align-items:center;
-    border:solid 1px #222;
-    border-radius:5px;
+    position: absolute;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    background-color: #ffcc00;
     cursor:pointer;
-    display:flex;
-    flex:0 15px;
-    font-weight:bold;
-    height:15px;
-    justify-content:center;
-    margin:1px;
-    padding:2px;
-    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
 }
+
+.vanilla-datepicker > .title-nav > .month-navigate:HOVER{
+    background-color: #fff;
+}
+
+.vanilla-datepicker > .title-nav > .year-navigate {
+    display: none;
+}
+
+/*
 .vanilla-datepicker > .title-nav > .month-navigate:first-child,
 .vanilla-datepicker > .title-nav > .year-navigate:first-child {
     align-self:flex-start;
@@ -47,8 +52,9 @@
 .vanilla-datepicker > .title-nav > .year-navigate:hover {
     border:solid 1px #979797;
 }
+*/
 .vanilla-datepicker > .week-header {
-    font-weight: bold;
+    background-color: rgba(0,0,0,0.1);
 }
 .vanilla-datepicker > .week-header,
 .vanilla-datepicker > .week {
@@ -57,31 +63,47 @@
     justify-content:space-between;
 }
 .vanilla-datepicker > .week-header > div {
-    align-items:flex-start;
-    display:flex;
     flex:1;
     justify-content:center;
+    text-align: center;
+    color: #208fdd;
+    padding: 5px 0;
 }
 .vanilla-datepicker > .week > div {
-    align-items:flex-end;
-    border:solid 1px #979797;
     cursor:pointer;
-    display:flex;
     flex:1;
-    justify-content:flex-end;
-    margin:1px;
-    padding:2px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.vanilla-datepicker > .week > div:LAST-CHILD {
+    border-right: 0px;
 }
 .vanilla-datepicker > .week > div.no-select {
     cursor:auto;
-    background:#979797;
-    color:#555;
+    color: rgba(255,255,255,0.2);
 }
 .vanilla-datepicker > .week > div.selected {
-    background-color:#415E82;
+    background-color:#ffcc00;
+    color: #004565;
     font-weight:bold;
 }
 .vanilla-datepicker > .week > div:not(.no-select):hover {
-    background:#555;
+    background:#208fdd;
 }
+
+.vanilla-datepicker > .title-nav > .next{
+    background-image: url('../pix/icn_next.png');
+    right: 0px;
+}
+.vanilla-datepicker > .title-nav > .previous{
+    background-image: url('../pix/icn_prev.png');
+    left: 0px;
+}
+
+.nodisplay{
+    display: none;
+}
+
 </style>

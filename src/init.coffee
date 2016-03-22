@@ -90,7 +90,7 @@ window.onpopstate = (e) -> # BACK
   width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
   if width <= 580 # MOBILE small screen
-
+    $("view_wrapper").style['max-width'] = width+'px'
     slideTo = (div) ->
       switch div
         when "start"
@@ -98,10 +98,10 @@ window.onpopstate = (e) -> # BACK
         when "edit"
           true
         when "mitfahrgelegenheit"
-          setMargin -1 * width * 0.97
+          setMargin -1 * width
           slideIn "btn_edit"
         else #details
-          setMargin -2 * width * 0.97
+          setMargin -2 * width
           slideIn "result_contact"
           hide "btn_save"
 

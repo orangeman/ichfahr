@@ -19,11 +19,20 @@ for menu in menus
 
 
 
-# DATE PICK
+# DATE PICKER
+options =
+  outputFormat: '%A, %d %B %Y', navigateYear: false
+  months:
+    short: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+    long: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+  weekdays:
+    short: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+    long: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
+
 append document.head, datepickcss
 pick = require("./inc/js/vanilla.datepicker")
 date = (d) -> rds.query dep: Date.parse d
-pick "#date", {outputFormat:'%A, %d %B %Y'}, date
+pick "#date", options, date
 $("date").oninput = (e) -> date this.value
 
 
