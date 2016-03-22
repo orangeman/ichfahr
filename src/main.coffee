@@ -67,8 +67,9 @@ window.query = () ->
   console.log "POST #{window.q.route} #{window.q.id?}"
   rds.query route: route, status: "published", (done) ->
     console.log "Done POST" # find yourself
-    window.q[k] = v for k, v of done
-    update done
+    if done.status != "deleted"
+      window.q[k] = v for k, v of done
+      update done
 
 
 
