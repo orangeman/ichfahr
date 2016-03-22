@@ -30,6 +30,7 @@ html, body{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 *{
@@ -220,6 +221,7 @@ h2{
 
 .result_li{
     list-style: none;
+    z-index: 5;
 }
 
 .result_li:HOVER{
