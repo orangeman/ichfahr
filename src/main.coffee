@@ -96,7 +96,7 @@ window.renderDetails = (id) ->
   console.log "DETAILS " + id #+ " :: " + JSON.stringify ride
   $("details").innerHTML = render.details detailshtml, q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
-  window.showMap? q, ride
+  window.showMap? window.q, ride
 
 update = (ride) ->
   if (u = window.url()).div == "details"
