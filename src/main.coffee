@@ -91,6 +91,8 @@ js.onload = () ->
       append results, render.row rowhtml, r
     update ride
 
+window.onbeforeunload = () -> rds?.close(); null
+
 window.renderDetails = (id) ->
   ride = rds.get id
   console.log "DETAILS " + id #+ " :: " + JSON.stringify ride
