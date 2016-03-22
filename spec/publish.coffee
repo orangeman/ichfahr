@@ -16,7 +16,7 @@ spec "PUBLISH RIDE", (s) ->
       rds.on (ride) ->
         if ride.me
           console.log "found SELF"
-          http.post SONNE + "/ride/create", head, (err, res, body) ->
+          http.post SONNE + "/auth/ride/create", head, (err, res, body) ->
             console.log "response: " + body
             t.ok false, "missing response"
             rds.close()
