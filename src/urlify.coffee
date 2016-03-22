@@ -20,12 +20,12 @@ module.exports = (q) ->
 
   fun.match = (url) ->
 
-    if m = url.match /mitfahrgelegenheit(\/.+\/.+)\/(.+)\/edit/
-      div: "edit", route: m[1], id: m[2]
-    else if m = url.match /mitfahrgelegenheit(\/.+\/.+)\/(.+)/
-      div: "details", route: m[1], id: m[2]
-    else if m = url.match /mitfahrgelegenheit(\/.+\/.+)/
-      div: "mitfahrgelegenheit", route: m[1]
+    if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)\/([^\/]+)\/edit/
+      div: "edit", route: decodeURI(m[1]), id: m[2]
+    else if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)\/([^\/]+)/
+      div: "details", route: decodeURI(m[1]), id: m[2]
+    else if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)/
+      div: "mitfahrgelegenheit", route: decodeURI(m[1])
     else
       div: "start"
 
