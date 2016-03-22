@@ -23,7 +23,7 @@ for menu in menus
 options =
   outputFormat: '%A, %d %B %Y', navigateYear: false
   months:
-    short: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+    short: ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
     long: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
   weekdays:
     short: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
