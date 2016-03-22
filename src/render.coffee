@@ -34,7 +34,7 @@ t = '<li><a href="{{k}}:{{v}}" class="call2action result_contact_{{p}}">{{label}
 
 route = (q, ride) -> # passenger, driver
   [d, p] = [ride, q]
-  return unless d.id && p.id
+  return unless d?.id && p?.id
   [d, p] = [p, d] if d.passenger
   bold = (place) -> () -> (text, render) ->
     if place == q.from || place == q.to

@@ -33,10 +33,12 @@ trompete = tralala [], [
       .pipe dom.createWriteStream()},
   { query: "#results"
   func: (dom, req, res) ->
-    console.log "RESULTS"
+    console.log "RESULTS " + req.u.id
     request API + req.u.route, headers: "accept": "stream/json"
     .pipe JSONStream.parse()
     .pipe es.map (ride, cb) ->
+      if ride.route == req.u.route
+        req.search = ride
       if ride.id == req.u.id
         req.ride = ride
       cb 0, render.row rowhtml, ride
@@ -48,7 +50,7 @@ trompete = tralala [], [
       r = req.u.route.split("/")
       dom.createWriteStream()
       .end render.details detailshtml,
-        from: r[1], to: r[2], req.ride
+        req.search, req.ride
 }]
 
 # STREAM HTML INTO STREAMING HTML
