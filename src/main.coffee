@@ -59,7 +59,7 @@ window.http.get BASE + "ride/empty_form", (e, r, html) ->
 # SEARCH RIDES
 window.query = () ->
   route = "/#{window.from()}/#{window.to()}"
-  return unless route.match /\/\w+\/\w+/
+  return unless route.match /\/[^\/]+\/[^\/]+/
   if route == q.route # no search same
     return # same query again
   else # new search!
