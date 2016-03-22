@@ -25,11 +25,16 @@ findParent = (tag, el) ->
 
 last = null
 slideTo = null
+window.q = {} # current query
 urlify = require("./src/urlify")()
 window.url = () -> urlify.match window.location.href
 
+
 url = (div, id) ->
-  unless last == div && div != "details"
+  if last == "details"
+    history.replaceState {}, div, urlify div, id
+  else if last != div
+    console.log "urlify " + JSON.stringify window.q
     history.pushState {}, last = div, urlify div, id
 
 goTo = (div) ->
@@ -44,9 +49,9 @@ goTo = (div) ->
 #####   CLICK NAVIGATION   ######
 
 $("btn_search").onclick = () ->
-  goTo "mitfahrgelegenheit"
-  url "mitfahrgelegenheit"
   window.query()
+  url "mitfahrgelegenheit"
+  goTo "mitfahrgelegenheit"
 
 $("btn_offer").onclick = () ->
   if last != "edit"
