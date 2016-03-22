@@ -1,3 +1,9 @@
+// TODAY IS?
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth(); //January is 0!
+var yyyy = today.getFullYear();
+
 currentDatepicker = null;
 
 module.exports = datepicker = function( query, options, cb ) {
@@ -98,11 +104,13 @@ module.exports = datepicker = function( query, options, cb ) {
                 nextYear.classList.add('next');
                 nextYear.innerHTML = '>>';
             }
-            previousMonth = document.createElement('div');
-            previousMonth.classList.add('month-navigate');
-            previousMonth.classList.add('previous');
-            previousMonth.innerHTML = '<';
-
+                previousMonth = document.createElement('div');
+                previousMonth.classList.add('month-navigate');
+                previousMonth.classList.add('previous');
+                previousMonth.innerHTML = '<';
+                if(yyyy == self.current.year && mm >= self.current.month){
+                    previousMonth.classList.add('nodisplay');
+                }
             currentMonth = document.createTextNode(
                 self.options.months.long[self.current.month] + ' ' + self.current.year
                 );
@@ -202,6 +210,14 @@ module.exports = datepicker = function( query, options, cb ) {
                 if (self.selected && self.selected.year == self.current.year && self.selected.month == self.current.month && self.selected.day == i+1) {
                     day.classList.add('selected');
                 }
+                
+//                if (yyyy == self.current.year && mm == self.current.month && dd == i+1) {
+//                    day.classList.add('today');
+//                }
+                if (yyyy == self.current.year && mm == self.current.month && dd > i+1) {
+                    day.classList.add('no-select');
+                }
+                
                 day.innerHTML = i+1;
                 days.push( day );
             }
@@ -210,7 +226,9 @@ module.exports = datepicker = function( query, options, cb ) {
                 var len = days.length;
                 for (var i=0; i<7-len; i++) {
                     var day = document.createElement('div');
+// PROBLEM HIER: NIMMT DEN AKTELLEN MONAT; NICHT DEN NÄCHSTEN
                     day.classList.add( 'no-select' );
+//                    day.classList.add( 'day' );
                     day.innerHTML = i+1;
                     days.push( day );
                 }

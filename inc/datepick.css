@@ -14,17 +14,17 @@
 }
 .vanilla-datepicker > .title-nav {
     position: relative;
-    align-items:center;
     background: rgba(0,0,0,0.2);
     height: 50px;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+    padding: 15px;
     margin-bottom: 20px;
+    text-align: center;
     width:auto;
 }
 .vanilla-datepicker > .title-nav > .month-navigate,
 .vanilla-datepicker > .title-nav > .year-navigate {
+    position: absolute;
+    top: 0px;
     width: 50px;
     height: 50px;
     background-color: #ffcc00;
@@ -95,10 +95,15 @@
 
 .vanilla-datepicker > .title-nav > .next{
     background-image: url('../pix/icn_next.png');
+    right: 0px;
 }
 .vanilla-datepicker > .title-nav > .previous{
     background-image: url('../pix/icn_prev.png');
+    left: 0px;
 }
 
+.nodisplay{
+    display: none;
+}
 
 </style>
