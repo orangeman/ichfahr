@@ -55,7 +55,7 @@ route = (q, ride) -> # passenger, driver
     duration = p.dropoff_time || d.dropoff_time
     way.row duration, dropoff, d.to, "to"
   else # no via at all
-    way.row d.dist_time, d.dist, d.to
+    way.row d.dist_time, d.dist, d.to, "to"
   way.render()
 
 row = """
