@@ -10,7 +10,7 @@
     height: 100%;
     padding: 10px;
     background: #004565;
-    z-index: 5000;
+    z-index: 9999;
 }
 .vanilla-datepicker > .title-nav {
     position: relative;
