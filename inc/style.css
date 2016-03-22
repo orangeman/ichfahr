@@ -225,7 +225,7 @@ h2{
 }
 
 .result_li:HOVER{
-    background-color: #ff0000;
+    background-color: rgba(0,0,0,0.1);
     cursor: pointer;
 }
 
@@ -290,10 +290,6 @@ h2{
 
 .result_li:nth-child(even) .resultlist_element{
     background-color: rgba(255,255,255,0.1);
-}
-
-.result_li:HOVER .resultlist_element{
-    background-color: rgba(255,255,255,0.2);
 }
 
 .resultlist_allowed{
