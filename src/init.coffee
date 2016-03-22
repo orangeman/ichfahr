@@ -31,10 +31,9 @@ window.url = () -> urlify.match window.location.href
 
 
 url = (div, id) ->
-  if last == "details"
+  if div == last
     history.replaceState {}, div, urlify div, id
-  else if last != div
-    console.log "urlify " + JSON.stringify window.q
+  else
     history.pushState {}, last = div, urlify div, id
 
 goTo = (div) ->

@@ -15,7 +15,7 @@ module.exports = (q) ->
       when "details"
         BASE + "mitfahrgelegenheit" + q.route + "/" + id
       when "edit"
-        BASE + "mitfahrgelegenheit" + q.route + "/" + (window?.q || q).id + "/edit"
+        BASE + "mitfahrgelegenheit" + q.route + "/" + q.id + "/edit"
 
 
   fun.match = (url) ->
