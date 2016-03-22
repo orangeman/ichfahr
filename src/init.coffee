@@ -189,11 +189,8 @@ complete = (text, render) ->
     render names.split ","
 
 route = window.url().route?.match /\/(.*)\/(.*)/ # default values
-window.from = auto $("from"), complete, (route[1] if route)
-window.to = auto $("to"), complete, (route[2] if route)
-
-# animate after initial resize
-$("wrapper").className = "sliding"
+window.from = auto $("from"), complete, route?[1], () -> $("btn_search").onclick()
+window.to = auto $("to"), complete, route?[2], () -> $("btn_search").onclick()
 
 # LOAD REST OF THE HTML / CSS / JS
 js = document.createElement "script"

@@ -3,7 +3,7 @@ BASE = (window?.location?.origin || "http://ichfahr.de") + "/"
 
 module.exports = (q) ->
 
-  window?.q = q = status: "published" unless q
+  q = window?.q || status: "published" unless q
 
   fun = (page, id) ->
 
