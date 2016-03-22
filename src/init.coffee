@@ -25,11 +25,15 @@ findParent = (tag, el) ->
 
 last = null
 slideTo = null
+window.q = {} # current query
 urlify = require("./src/urlify")()
 window.url = () -> urlify.match window.location.href
 
+
 url = (div, id) ->
-  unless last == div && div != "details"
+  if div == last
+    history.replaceState {}, div, urlify div, id
+  else
     history.pushState {}, last = div, urlify div, id
 
 goTo = (div) ->
@@ -44,9 +48,9 @@ goTo = (div) ->
 #####   CLICK NAVIGATION   ######
 
 $("btn_search").onclick = () ->
-  goTo "mitfahrgelegenheit"
-  url "mitfahrgelegenheit"
   window.query()
+  url "mitfahrgelegenheit"
+  goTo "mitfahrgelegenheit"
 
 $("btn_offer").onclick = () ->
   if last != "edit"
@@ -184,11 +188,8 @@ complete = (text, render) ->
     render names.split ","
 
 route = window.url().route?.match /\/(.*)\/(.*)/ # default values
-window.from = auto $("from"), complete, (route[1] if route)
-window.to = auto $("to"), complete, (route[2] if route)
-
-# animate after initial resize
-$("wrapper").className = "sliding"
+window.from = auto $("from"), complete, route?[1], () -> $("btn_search").onclick()
+window.to = auto $("to"), complete, route?[2], () -> $("btn_search").onclick()
 
 # LOAD REST OF THE HTML / CSS / JS
 js = document.createElement "script"
