@@ -91,7 +91,7 @@ js.onload = () ->
       append results, render.row rowhtml, r
     update ride
 
-  window.onbeforeunload = () -> alert "hui"; sock.close()
+window.onbeforeunload = () -> rds?.close(); null
 
 window.renderDetails = (id) ->
   ride = rds.get id
