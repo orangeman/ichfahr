@@ -21,7 +21,7 @@
   "scripts": {
     "pretest": "coffee -c src/*coffee",
     "prestart": "coffee -c src/*coffee",
-    "test": "coffee spec/*.coffee | node_modules/tap-spec/bin/cmd.js",
+    "test": "coffee -c spec/*.coffee && ./node_modules/tape/bin/tape spec/*.js | node_modules/tap-spec/bin/cmd.js",
     "start": "coffee build.coffee"
   },
   "repository": {
