@@ -43,36 +43,41 @@ route = (q, ride) -> # passenger, driver
   way = table d.from, d.dep, bold
   if pickup = p.pickup  || d.pickup
     duration = p.pickup_time || d.pickup_time
-    way.row duration, pickup, p.from
-    way.row p.dist_time, p.dist, p.to
+    way.row duration, pickup, p.from, "via"
     if dropoff = p.dropoff || d.dropoff # pickup and dropoff
+      way.row p.dist_time, p.dist, p.to, "via"
       duration = p.dropoff_time || d.dropoff_time
-      way.row duration, dropoff, d.to
+      way.row duration, dropoff, d.to, "to"
+    else # only pickup
+      way.row p.dist_time, p.dist, p.to, "to"
   else if dropoff = p.dropoff || d.dropoff # only dropoff
-    way.row p.dist_time, p.dist, p.to
+    way.row p.dist_time, p.dist, p.to, "via"
     duration = p.dropoff_time || d.dropoff_time
-    way.row duration, dropoff, d.to
+    way.row duration, dropoff, d.to, "to"
   else # no via at all
-    way.row d.dist_time, d.dist, d.to
+    way.row d.dist_time, d.dist, d.to, "to"
   way.render()
 
 row = """
-<tr>
+<tr class="result_table_route_dist_tr">
+    <td class="result_table_route_place">{{ dist }}</td>
+    <td class="result_table_route_distance"></td>
     <td class="result_table_route_duration">{{ dur }}</td>
-    <td class="result_table_route_distance">{{ dist }}</td>
+</tr>
+<tr class="result_table_route_place_tr result_table_route_{{ icon }}">
     <td class="result_table_route_place">{{#bold}} {{ place }} {{/bold }}</td>
-    <td class="result_table_route_time">{{ time }}</td>
     <td class="result_table_route_total">{{ total }}</td>
+    <td class="result_table_route_time">{{ time }}</td>
 </tr>
 """
 
 table = (from, dep, bold) ->
   total = 0
   time = dep
-  rows = [dur: "", dist: "", place: from, bold: bold(from), time: tt(dep), total: "0km", ]
-  row: (duration, dist, place) ->
+  rows = [dur: "", dist: "", place: from, bold: bold(from), time: tt(dep), total: "0km", icon: "from"]
+  row: (duration, dist, place, icon) ->
     rows.push
-      dur: mm(duration), dist: dist + "km"
+      dur: mm(duration), dist: dist + "km", icon: icon
       place: place, bold: bold(place)
       time: tt(time += duration * 60000)
       total: (total += dist) + "km"

@@ -258,30 +258,31 @@ h2{
     margin-right: 10px;
 }
 
-.resultlist_user{
-  height: 40px;
-  width: 40px;
-  top: 5px;
-  right: 100px;
-}
-
+ 
+.resultlist_user,
 .resultlist_mode,
 .resultlist_seats{
     position: absolute;
     height: 40px;
     width: 40px;
     top: 5px;
-    right: 50px;
+    right: 85px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+    border: 2px solid rgba(255,255,255,0.5);
 }
 
 .resultlist_mode{
-    right: 0px;
-    height: 50px;
-    width: 50px;
-    top: 0px;
+    right: 45px;
+    border-left: 0px;
+}
+
+.resultlist_user{
+    right: 5px;
+    border-left: 0px;
+    background-size: cover;
+    background-image: url('/pix/icn_user.png');
 }
 
 .resultlist_element{
@@ -298,7 +299,7 @@ h2{
     text-align: center;
     vertical-align: middle;
     right: 10px;
-    bottom: 5px;
+    bottom: 2px;
 }
 
 .resultlist_allowed li{
@@ -343,6 +344,7 @@ h2{
     background-position: left top;
     background-repeat: no-repeat;
     background-size: contain;
+    border: 5px solid #004565;
 }
 
 .call2action:HOVER{
@@ -353,7 +355,6 @@ h2{
     position: fixed;
     bottom: -5px;
     left: 5px;
-    border: 5px solid #004565;
 }
 
 .from_bottom{
@@ -381,18 +382,6 @@ h2{
 #wrapper{
   position: relative;
   left: 1px;
-}
-
-#view_wrapper{
-    position: fixed;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background-color: #ff5500;
 }
 
 .sliding{
@@ -454,9 +443,7 @@ h2{
     }
 }
 @media screen and (min-width: 580px) /* Fablet */ {
-    body {
-        background: blue;
-    }
+
     #start,#details,#mitfahrgelegenheit,#details{
         position: absolute;
         left: 0;
@@ -474,9 +461,7 @@ h2{
     }
 }
 @media screen and (min-width: 680px) /* Tablet */ {
-    body {
-        background: #004565;
-    }
+
     #start,#details,#mitfahrgelegenheit,#details,#edit{
         width: 50%;
         position: absolute;
@@ -499,9 +484,7 @@ h2{
     }
 }
 @media screen and (min-width: 900px) /* Desktop */ {
-    body {
-        background: red;
-    }
+
     #start,#details,#mitfahrgelegenheit,#details,#edit{
         width: 33%;
         position: absolute;
@@ -515,8 +498,32 @@ h2{
     #details{
         display: block;
         left: 67%;
+        padding-left: 0px;
     }
+    
+    .result_table_driver{
+        float: right;
+        width: 70%!important;
+        width: -webkit-calc(70% - 10px)!important;
+        width: -moz-calc(70% - 10px)!important;
+        width: calc(70% - 10px)!important;
+
+    }
+    
+    .result_avatar{
+        width: 30%;
+        padding-right: 10px;
+        float: left;
+    }
+    
+    .result_avatar img{
+        width: 100%;
+        height: auto;
+    }
+    
     #map {
+        position: fixed;
+        top: 0;
       width:33%;
       left: 67%;
       height:100%;

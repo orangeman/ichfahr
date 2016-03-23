@@ -1,8 +1,8 @@
 <li id="{{ id }}" class="result_li" title="{{ title }}">
     <div class="resultlist_first_line resultlist_element">
         <div class="resultlist_time">{{ departure }}</div>
-        <img class="resultlist_user" src="{{ user.avatar }}"></img>
         <div class="resultlist_price">{{ price }} <span>€</span></div>
+        <div class="resultlist_user" style="background-image: url('{{ user.avatar }}');"></div>
         <div class="resultlist_seats seats_{{ seats }}"></div>
         <div class="resultlist_mode mode_{{ mode }}"></div>
     </div>
