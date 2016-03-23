@@ -384,6 +384,7 @@ h2{
 }
 
 #view_wrapper{
+/*
     position: fixed;
     width: 100%;
     max-width: 100%;
@@ -393,6 +394,7 @@ h2{
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #ff5500;
+*/
 }
 
 .sliding{
