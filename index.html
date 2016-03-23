@@ -9,46 +9,45 @@
     </head>
 
     <body>
-        <div id="view_wrapper">
-            <div id="wrapper">
+        <div id="wrapper">
 
-                <div id="start">
-                    <div id="from" class="start_form_input_box autocomplete">
-                        <input type="text" class="form_inputtext fromto start_form_from" placeholder="von" tabindex="1">
-                        <span class="suggest"></span>
-                    </div>
-
-                    <div id="to" class="start_form_input_box autocomplete">
-                        <input type="text" class="form_inputtext fromto start_form_to" placeholder="nach" tabindex="2">
-                        <span class="suggest"></span>
-                    </div>
-
-                    <div class="start_form_input_box">
-                        <input type="text" class="form_inputtext start_form_date" id="date" placeholder="am" onfocus="blur();">
-                    </div>
-
-                    <div id="start_form_send">
-                        <button id="btn_search" class="start_button transition">Mitfahren</button>
-                        <button id="btn_offer" class="start_button transition">Fahren</button>
-                        <div class="clear"></div>
-                    </div>
+            <div id="start">
+                <div id="from" class="start_form_input_box autocomplete">
+                    <input type="text" class="form_inputtext fromto start_form_from" placeholder="von" tabindex="1">
+                    <span class="suggest"></span>
                 </div>
 
-                <div id="edit"></div>
-
-                <div id="mitfahrgelegenheit">
-                    <ul id="results"></ul>
-                    <button id="btn_edit" class="call2action absolute_button from_bottom transition">Fahrt eintragen</button>
+                <div id="to" class="start_form_input_box autocomplete">
+                    <input type="text" class="form_inputtext fromto start_form_to" placeholder="nach" tabindex="2">
+                    <span class="suggest"></span>
                 </div>
 
-                <div id="details" class="transition"></div>
-                <div id="result_contact" class="absolute_button from_bottom transition">
-                    <ul id="result_contact_options" class="result_contact_closed transition"></ul>
-                    <button id="btn_contact" class="call2action result_contact_button">Kontaktieren</button>
+                <div class="start_form_input_box">
+                    <input type="text" class="form_inputtext start_form_date" id="date" placeholder="am" onfocus="blur();">
                 </div>
 
+                <div id="start_form_send">
+                    <button id="btn_search" class="start_button transition">Mitfahren</button>
+                    <button id="btn_offer" class="start_button transition">Fahren</button>
+                    <div class="clear"></div>
+                </div>
             </div>
+
+            <div id="edit"></div>
+
+            <div id="mitfahrgelegenheit">
+                <ul id="results"></ul>
+                <button id="btn_edit" class="call2action absolute_button from_bottom transition">Fahrt eintragen</button>
+            </div>
+
+            <div id="details" class="transition"></div>
+            <div id="result_contact" class="absolute_button from_bottom transition">
+                <ul id="result_contact_options" class="result_contact_closed transition"></ul>
+                <button id="btn_contact" class="call2action result_contact_button">Kontaktieren</button>
+            </div>
+
         </div>
+
         <script src="/inc/js/i.js"></script>
 
     </body>
