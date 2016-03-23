@@ -90,7 +90,7 @@ window.onpopstate = (e) -> # BACK
   width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
   if width <= 580 # MOBILE small screen
-    $("view_wrapper").style['max-width'] = width+'px'
+
     slideTo = (div) ->
       switch div
         when "start"
