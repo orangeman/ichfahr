@@ -59,12 +59,15 @@ route = (q, ride) -> # passenger, driver
   way.render()
 
 row = """
-<tr>
+<tr class="result_table_route_dist_tr">
+    <td class="result_table_route_place">{{ dist }}</td>
+    <td class="result_table_route_distance"></td>
     <td class="result_table_route_duration">{{ dur }}</td>
-    <td class="result_table_route_distance">{{ dist }}</td>
+</tr>
+<tr class="result_table_route_place_tr result_table_route_{{ icon }}">
     <td class="result_table_route_place">{{#bold}} {{ place }} {{/bold }}</td>
-    <td class="result_table_route_time">{{ time }}</td>
     <td class="result_table_route_total">{{ total }}</td>
+    <td class="result_table_route_time">{{ time }}</td>
 </tr>
 """
 

@@ -39,24 +39,48 @@
     width: 100%;
     color: #fff;
     padding-bottom: 10px;
-    border-bottom: 2px solid #208fdd;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border-collapse: collapse;
 }
 
+.result_table_route_place_tr td{
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px;
+    }
 .result_table_route_duration{
     padding-right: 5px;
     text-align: right;
     width: 20%;
+    opacity: 0.5;
 }
 .result_table_route_distance{
     padding-right: 5px;
     text-align: right;
     color: #208fdd;
     width: 15%;
+    opacity: 0.5;
 }
 .result_table_route_place{
     width: 30%;
+    padding-left: 25px!important;
+    background-image: url('/pix/icn_route_dist.png');
+    background-position: center left;
+    background-repeat: no-repeat;
 }
+.result_table_route_dist_tr > .result_table_route_place{
+    color: rgba(32,143,221,0.5);
+}
+    
+.result_table_route_via > .result_table_route_place{
+    background-image: url('/pix/icn_route_waypoint.png');
+}
+.result_table_route_from > .result_table_route_place{
+    background-image: url('/pix/icn_route_from.png');
+}
+.result_table_route_to > .result_table_route_place{
+    background-image: url('/pix/icn_route_to.png');
+}
+
 .result_table_route_time{
     text-align: right;
     width: 20%;

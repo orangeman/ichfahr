@@ -382,6 +382,7 @@ h2{
   position: relative;
   left: 1px;
 }
+
 .sliding{
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
@@ -441,9 +442,7 @@ h2{
     }
 }
 @media screen and (min-width: 580px) /* Fablet */ {
-    body {
-        background: blue;
-    }
+
     #start,#details,#mitfahrgelegenheit,#details{
         position: absolute;
         left: 0;
@@ -461,9 +460,7 @@ h2{
     }
 }
 @media screen and (min-width: 680px) /* Tablet */ {
-    body {
-        background: #004565;
-    }
+
     #start,#details,#mitfahrgelegenheit,#details,#edit{
         width: 50%;
         position: absolute;
@@ -486,9 +483,7 @@ h2{
     }
 }
 @media screen and (min-width: 900px) /* Desktop */ {
-    body {
-        background: red;
-    }
+
     #start,#details,#mitfahrgelegenheit,#details,#edit{
         width: 33%;
         position: absolute;
