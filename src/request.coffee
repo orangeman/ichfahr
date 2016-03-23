@@ -8,7 +8,8 @@ module.exports =
     p = request("POST", url, cb)
     write: (data) ->
       body = ""
-      body += ((k + "=" + encodeURI(v) + "&") for k, v of data).slice 0, -1
+      (body += (k + "=" + encodeURI(v) + "&") for k, v of data).slice 0, -1
+      console.log body
       p.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
       p.setRequestHeader "Content-length", body.length
       p.send body

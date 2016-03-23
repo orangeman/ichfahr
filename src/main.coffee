@@ -58,9 +58,15 @@ window.http.get BASE + "ride/empty_form", (e, r, html) ->
 
   $("btn_save").onclick = () ->
     console.log "click"
+    q.guid = window.q.id
+    q.origin = window.from()
+    q.destination = window.to()
+    q.mobile = $("mobile").value
+    q.email = $("email").value
     window.http.post BASE + "ride/create", (e, r, body) ->
       console.log "und alle so yeah"
-      q.id = window.q.id
+      console.log body
+      console.log window.q.id
     .write q
 
 
