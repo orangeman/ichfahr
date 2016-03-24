@@ -101,6 +101,7 @@ h2{
     width: 100%;
     z-index: 1;
     padding: 60px 10px 10px;
+    z-index: 9999;
 }
 
 .start_form_input_box,
@@ -270,17 +271,15 @@ h2{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
-    border: 2px solid rgba(255,255,255,0.5);
 }
 
 .resultlist_mode{
     right: 45px;
-    border-left: 0px;
 }
 
 .resultlist_user{
     right: 5px;
-    border-left: 0px;
+    border: 1px solid rgba(255,255,255,1);
     background-size: cover;
     background-image: url('/pix/icn_user.png');
 }
