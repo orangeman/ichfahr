@@ -484,22 +484,60 @@ h2{
 }
 @media screen and (min-width: 900px) /* Desktop */ {
 
-    #start,#details,#mitfahrgelegenheit,#details,#edit{
-        width: 33%;
+/*
+    #view_wrapper{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+*/
+    
+    #wrapper{
         position: absolute;
-        max-width: 33%;
-        left: 0;
-        top: 0;
-    }
-    #mitfahrgelegenheit{
-        left: 33%;
-    }
-    #details{
-        display: block;
-        left: 67%;
-        padding-left: 0px;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
     }
     
+    #startscreen,#details,#mitfahrgelegenheit,#details{
+        position: relative;
+        float: left;
+        width: 33.3333%;
+        height: 100%;
+        overflow-y: scroll;
+        left: 0;
+        z-index: 1;
+    }
+    
+    #startscreen{
+        z-index: 2;
+    }
+    
+    .vanilla-datepicker{
+        width: 33.3333%!important;
+    }
+    
+    #start,#edit{
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        top: 0;
+        height: auto;
+        
+    }
+    
+    #map {
+        position: fixed;
+        top: 0;
+        width:33%;
+        left: 67%;
+        height:100%;
+        display: none;
+    }
+
+    .result_description{
+        padding-bottom: 80px;
+    }
     .result_table_driver{
         float: right;
         width: 70%!important;
@@ -519,19 +557,27 @@ h2{
         width: 100%;
         height: auto;
     }
-    
-    #map {
-        position: fixed;
-        top: 0;
-      width:33%;
-      left: 67%;
-      height:100%;
-      display: none;
+
+    #result_contact{
+        left: 33.3333%;
+        z-index: 1000;
     }
+/*
+    #mitfahrgelegenheit{
+        left: 33%;
+    }
+    #details{
+        display: block;
+        left: 67%;
+        padding-left: 0px;
+    }
+    
+    
     #result_contact{
         left: 33%
     }
     #edit{
         top: 304px;
     }
+*/
 }
