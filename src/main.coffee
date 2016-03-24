@@ -52,7 +52,7 @@ window.http.get BASE + "ride/empty_form", (e, r, html) ->
     rds.query mode: q.mode = e.target.value
   $("github").onclick = () ->
     window.open "https://ifoauth.herokuapp.com/auth/github?token=" +
-      rds.token() + "&ride=" + q.id, "Auth", "height=400,width=300"
+      rds.token() + "&ride=" + window.q.id, "Auth", "height=400,width=300"
   $("description").oninput = () ->
     rds.query details: q.details = this.value
 
