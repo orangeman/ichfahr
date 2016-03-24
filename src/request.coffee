@@ -17,7 +17,11 @@ module.exports =
 
 
 request = (method, url, cb) ->
-  xhr = new XMLHttpRequest?() || new ActiveXObject('Microsoft.XMLHTTP')
+  xhr = null
+  if XMLHttpRequest
+    xhr = new XMLHttpRequest()
+  else
+    xhr = new ActiveXObject('Microsoft.XMLHTTP')
   xhr.open method, url
   xhr.onreadystatechange = () ->
     if xhr.readyState > 3
