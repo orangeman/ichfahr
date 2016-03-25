@@ -103,17 +103,17 @@ js.onload = () ->
     results.innerHTML = ""
     for r in rds.sort "dep"
       append results, render.row rowhtml, r
-    update ride
+    update ride unless ride.me
 
 window.onbeforeunload = () -> rds?.close(); null
 
 active = null
 window.renderDetails = (id) ->
   ride = rds.get id
+  console.log "DETAILS " + id
   active?.classList.remove "active"
   (active = $(id)).classList.add "active"
-  console.log "DETAILS " + id #+ " :: " + JSON.stringify ride
-  $("details").innerHTML = render.details detailshtml, q, ride
+  $("details").innerHTML = render.details detailshtml, window.q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
   window.showMap? window.q, ride
 
