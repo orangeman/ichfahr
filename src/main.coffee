@@ -31,9 +31,8 @@ options =
 
 append document.head, datepickcss
 pick = require("./inc/js/vanilla.datepicker")
-date = (d) -> rds.query dep: Date.parse d
-pick "#date", options, date
-$("date").oninput = (e) -> date this.value
+pick "#date", options, (d) -> rds.query dep: d.getTime()
+
 
 
 

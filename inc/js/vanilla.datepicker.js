@@ -37,14 +37,15 @@ module.exports = datepicker = function( query, options, cb ) {
         },
 
         close: function(){
-            delete self.current;
-            delete self.target;
+            //delete self.current;
+            //delete self.target;
             if (self.picker) self.picker.remove();
         },
 
         show: function( target ){
             self.target = typeof target != typeof undefined ? target : self.target;
-            if (target || typeof self.current == typeof undefined) {
+            if (typeof self.current == typeof undefined) {
+                console.log("Why? " + JSON.stringify(self.current));
                 var current = new Date();
                 if (target) self.selected = null;
                 if (target && target.value) {
@@ -210,14 +211,14 @@ module.exports = datepicker = function( query, options, cb ) {
                 if (self.selected && self.selected.year == self.current.year && self.selected.month == self.current.month && self.selected.day == i+1) {
                     day.classList.add('selected');
                 }
-                
+
 //                if (yyyy == self.current.year && mm == self.current.month && dd == i+1) {
 //                    day.classList.add('today');
 //                }
                 if (yyyy == self.current.year && mm == self.current.month && dd > i+1) {
                     day.classList.add('no-select');
                 }
-                
+
                 day.innerHTML = i+1;
                 days.push( day );
             }
@@ -247,8 +248,11 @@ module.exports = datepicker = function( query, options, cb ) {
         },
 
         setDate: function( day ) {
-            var dayOfWeek = new Date(self.current.year, self.current.month, day).getDay();
-            var date = self.options.outputFormat
+            self.current.day = day;
+            self.selected = self.current;
+            var date = new Date(self.current.year, self.current.month, day)
+            var dayOfWeek = date.getDay();
+            var d = self.options.outputFormat
                 .replace('%a', self.options.weekdays.short[dayOfWeek] )
                 .replace('%A', self.options.weekdays.long[dayOfWeek] )
                 .replace('%d', ('0' + day).slice(-2) )
@@ -258,7 +262,8 @@ module.exports = datepicker = function( query, options, cb ) {
                 .replace('%m', ('0' + (self.current.month+1)).slice(-2) )
                 .replace('%w', dayOfWeek )
                 .replace('%Y', self.current.year );
-            return self.target.value = date;
+            self.target.value = d;
+            return date;
         },
 
         bindCalendar: function(event) {
