@@ -1,21 +1,26 @@
 mustache = require "mustache"
+day = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+month = ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+normalize = (n) -> if n > 9 then n else "0" + n
+time = (d) -> normalize(d.getHours()) + ":" + normalize(d.getMinutes())
+mm = (duration) -> "#{Math.floor(duration/60)}h #{duration % 60}min"
+tt = (timestamp) -> time new Date(timestamp)
 
-parse = (t) -> new Date(t).toString().match /(\w*)\s(\w*)\s(\d+)\s(\d+)\s(\d+:\d+):/
 
 module.exports =
 
   row: (html, ride) -> # search results
-    [a, weekday, month, day, year, time] = parse ride.dep
-    ride.departure = "#{weekday} #{time}"
-    ride.date = "#{day} #{month}"
+    d = new Date(ride.dep)
+    ride.departure = "#{day[d.getDay()]} #{time d}"
+    ride.date = "#{d.getDate()} #{month[d.getMonth()]}"
     ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
     mustache.render html, ride # row.html
 
 
   details: (html, q, ride) ->
-    [a, weekday, month, day, year, time] = parse ride.dep
-    ride.date = "#{day} #{month} #{year}"
-    ride.time_label = time
+    d = new Date(ride.dep)
+    ride.date = "#{d.getDate()} #{month[d.getMonth()]} #{d.getFullYear()}"
+    ride.time_label = time d
     ride.route_html = route q, ride
     mustache.render html, ride
 
@@ -72,19 +77,16 @@ row = """
 """
 
 table = (from, dep, bold) ->
+  i = dep
   total = 0
-  time = dep
   rows = [dur: "", dist: "", place: from, bold: bold(from), time: tt(dep), total: "0km", icon: "from"]
   row: (duration, dist, place, icon) ->
     rows.push
       dur: mm(duration), dist: dist + "km", icon: icon
       place: place, bold: bold(place)
-      time: tt(time += duration * 60000)
+      time: tt(i += duration * 60000)
       total: (total += dist) + "km"
   render: () ->
     html = ""
     html += mustache.render row, r for r in rows
     html
-
-tt = (timestamp) -> parse(timestamp)[5]
-mm = (duration) -> "#{Math.floor(duration/60)}h #{duration % 60}min"
