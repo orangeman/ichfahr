@@ -119,7 +119,7 @@ window.renderDetails = (id) ->
 
 update = (ride) ->
   (active = $(active?.id))?.classList.add "active"
-  if (u = window.url()).div == "details"
+  if (u = window.url()).div == "details" || u.div == "edit"
     if u.id == ride.id || window.q.id == ride.id
       window.renderDetails u.id
 
