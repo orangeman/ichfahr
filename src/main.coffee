@@ -107,14 +107,18 @@ js.onload = () ->
 
 window.onbeforeunload = () -> rds?.close(); null
 
+active = null
 window.renderDetails = (id) ->
   ride = rds.get id
+  active?.classList.remove "active"
+  (active = $(id)).classList.add "active"
   console.log "DETAILS " + id #+ " :: " + JSON.stringify ride
   $("details").innerHTML = render.details detailshtml, q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
   window.showMap? window.q, ride
 
 update = (ride) ->
+  (active = $(active?.id))?.classList.add "active"
   if (u = window.url()).div == "details"
     if u.id == ride.id || window.q.id == ride.id
       window.renderDetails u.id
