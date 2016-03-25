@@ -11,6 +11,7 @@ module.exports =
 
   row: (html, ride) -> # search results
     d = new Date(ride.dep)
+    ride.myride = if ride.me then "myride" else ""
     ride.departure = "#{day[d.getDay()]} #{time d}"
     ride.date = "#{d.getDate()} #{month[d.getMonth()]}"
     ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
