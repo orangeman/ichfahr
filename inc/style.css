@@ -273,6 +273,10 @@ h2{
     background-size: contain;
 }
 
+.resultlist_seats{
+    background-size: 80% auto;
+}
+
 .resultlist_mode{
     right: 45px;
 }
