@@ -74,10 +74,7 @@ window.http.get BASE + "ride/empty_form", (e, r, html) ->
 window.query = () ->
   route = "/#{window.from()}/#{window.to()}"
   return unless route.match /\/[^\/]+\/[^\/]+/
-  if route == q.route # no search same
-    return # same query again
-  else # new search!
-    window.q.route = route
+  window.q.route = route
   console.log "POST #{window.q.route} #{window.q.id?}"
   rds.query route: route, status: "published", (done) ->
     console.log "Done POST" # find yourself
