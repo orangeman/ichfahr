@@ -109,10 +109,11 @@ window.renderDetails = (id) ->
   ride = rds.get id
   console.log "DETAILS " + id
   active?.classList.remove "active"
-  (active = $(id)).classList.add "active"
+  (active = $(id))?.classList.add "active"
   $("details").innerHTML = render.details detailshtml, window.q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
   window.showMap? window.q, ride
+  tooltips()
 
 update = (ride) ->
   (active = $(active?.id))?.classList.add "active"
@@ -121,3 +122,12 @@ update = (ride) ->
       window.renderDetails u.id
 
 render = require "./src/render"
+
+tooltips = () ->
+  for tt in document.getElementsByClassName("tooltip")
+    tt.onclick = (e) ->
+      for sib in @parentNode.children
+        sib.removeChild sib.lastChild if sib.children.length > 1
+        sib.style.opacity = 0.5
+      @style.opacity = 1
+      append @, "<p class=\"tooltip_show\"><span>#{@title}</span></p>"
