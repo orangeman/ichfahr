@@ -22,19 +22,19 @@ init = () ->
   ).addTo map
   #L.control.zoom(position: "bottomright").addTo map
 
-  Leaf = L.Icon.extend
+  Marker = L.Icon.extend
     options:
-      shadowUrl: '/pix/leaf-shadow.png'
+      shadowUrl: '/pix/marker_shadow.png'
       iconSize:     [38, 95]
       shadowSize:   [50, 64]
       iconAnchor:   [22, 94]
       shadowAnchor: [4, 62]
 
-  leaf = (place, icon, cb) ->
-    console.log "  draw leaf " + place
+  marker = (place, icon, cb) ->
+    console.log "  draw marker " + place
     get place, (pl) ->
-      console.log "   leaf " + pl
-      L.marker(JSON.parse(pl), icon: new Leaf iconUrl: icon).addTo(map);
+      console.log "   marker " + pl
+      L.marker(JSON.parse(pl), icon: new Marker iconUrl: icon).addTo(map);
       cb() if cb
 
   path = (route, style, cb) ->
@@ -74,10 +74,10 @@ init = () ->
     path dropoff, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1 if dropoff
     path passenger.route, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1, () ->
       console.log "driver drawn"
-      leaf driver.from, "/pix/leaf-green.png"
-      leaf driver.from, "/pix/leaf-red.png"
-      leaf passenger.from, "/pix/leaf-orange.png"
-      leaf passenger.to, "/pix/leaf-orange.png", () ->
+      marker driver.from, "/pix/marker_blue.png"
+      marker driver.to, "/pix/marker_light_blue.png"
+      marker passenger.from, "/pix/marker_yellow.png"
+      marker passenger.to, "/pix/marker_yellow.png", () ->
         console.log "icons drawn"
         path passenger.route, color: "#ffcc00", weight: 3, opacity: 1, () ->
           console.log "passenger drawn"
