@@ -127,7 +127,8 @@ tooltips = () ->
   for tt in document.getElementsByClassName("tooltip")
     tt.onclick = (e) ->
       for sib in @parentNode.children
-        sib.removeChild sib.lastChild if sib.children.length > 1
+        if sib.lastChild?.tagName == "P"
+          sib.removeChild sib.lastChild
         sib.style.opacity = 0.5
       @style.opacity = 1
       append @, "<p class=\"tooltip_show\"><span>#{@title}</span></p>"
