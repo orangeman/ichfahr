@@ -6,3 +6,5 @@ src/*.js
 spec/*.js
 inc/js/i.js
 inc/js/m.js
+inc/js/map.js
+

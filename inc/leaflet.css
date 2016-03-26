@@ -1,5 +1,5 @@
+<style>
 /* required styles */
-
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -500,10 +500,9 @@
 	border: 1px solid #999;
 	}
 
-
 /* div icon */
-
 .leaflet-div-icon {
 	background: #fff;
 	border: 1px solid #666;
 	}
+</style>

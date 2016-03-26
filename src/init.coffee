@@ -172,15 +172,16 @@ window.onpopstate = (e) -> # BACK
           show "details"
           setTimeout (() ->
             show "map"
-            console.log "INVALIDATE"
-            map.reAdjust()
+            window.map?.reAdjust()
           ), 450
 
-    require("./src/vision") (m) -> map = m
+    js = document.createElement "script"
+    js.src = "/inc/js/map.js"
+    document.body.appendChild js
 
 # direct deep link  or refresh
   goTo last = window.url().div
-)()
+)() # initial resize call
 
 
 window.API = "http://pi.sonnenstreifen.de:5000"

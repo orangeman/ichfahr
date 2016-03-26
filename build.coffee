@@ -15,3 +15,9 @@ build (m) ->
   m.inline "inc/html/details.html"
   m.append "src/main.coffee"
   m.browserify "inc/js/m.js"#, mini: true
+
+build (map) ->
+  map.inline "inc/leaflet.css"
+  map.append "src/vision.coffee"
+  map.browserify "inc/js/map.js",
+    include: "inc/js/leaflet.js"
