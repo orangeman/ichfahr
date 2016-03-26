@@ -11,9 +11,10 @@ avatar = "style=\"background-image: url('{{ user.avatar }}');\""
 module.exports =
 
   row: (html, ride) -> # search results
-    d = new Date(ride.dep)
+    g = if ride.pickup then "~ " else ""
+    d = new Date(ride.dep + ride.pickup_time)
     ride.myride = if ride.me then "myride" else ""
-    ride.departure = "#{day[d.getDay()]} #{time d}"
+    ride.departure = "#{day[d.getDay()]} #{g}#{time d}"
     ride.date = "#{d.getDate()} #{month[d.getMonth()]}"
     ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
     ride.avatar = mustache.render avatar, ride if ride.user?.avatar
@@ -22,9 +23,10 @@ module.exports =
 
 
   details: (html, q, ride) ->
-    d = new Date(ride.dep)
+    g = if ride.pickup then "~" else " "
+    d = new Date(ride.dep + ride.pickup_time)
     ride.date = "#{d.getDate()} #{month[d.getMonth()]} #{d.getFullYear()}"
-    ride.time_label = time d
+    ride.time_label = g + time d
     ride.route_html = route q, ride
     mustache.render html, ride
 
@@ -76,7 +78,7 @@ row = """
 <tr class="result_table_route_place_tr result_table_route_{{ icon }}">
     <td class="result_table_route_place">{{#bold}} {{ place }} {{/bold }}</td>
     <td class="result_table_route_total">{{ total }}</td>
-    <td class="result_table_route_time">{{ time }}</td>
+    <td class="result_table_route_time">{{ guess }}{{ time }}</td>
 </tr>
 """
 
@@ -85,10 +87,11 @@ table = (from, dep, bold) ->
   total = 0
   rows = [dur: "", dist: "", place: from, bold: bold(from), time: tt(dep), total: "0km", icon: "from"]
   row: (duration, dist, place, icon) ->
+    guess = if icon != "to" then "~ " else ""
     rows.push
       dur: mm(duration), dist: dist + "km", icon: icon
       place: place, bold: bold(place)
-      time: tt(i += duration * 60000)
+      time: guess + tt(i += duration * 60000)
       total: (total += dist) + "km"
   render: () ->
     html = ""
