@@ -10,6 +10,7 @@ rowhtml = require("fs").readFileSync("inc/html/row.html").toString()
 JSONStream = require "JSONStream"
 render = require "./src/render"
 
+process.env.TZ = 'Europe/Amsterdam'
 SONNE = "http://pi.sonnenstreifen.de"
 proxy = http.createProxyServer()
 FORWARD = SONNE + "/ichfahr/"
