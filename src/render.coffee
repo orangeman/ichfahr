@@ -6,6 +6,7 @@ time = (d) -> normalize(d.getHours()) + ":" + normalize(d.getMinutes())
 mm = (duration) -> "#{Math.floor(duration/60)}h #{duration % 60}min"
 tt = (timestamp) -> time new Date(timestamp)
 
+avatar = "style=\"background-image: url('{{ user.avatar }}');\""
 
 module.exports =
 
@@ -15,6 +16,8 @@ module.exports =
     ride.departure = "#{day[d.getDay()]} #{time d}"
     ride.date = "#{d.getDate()} #{month[d.getMonth()]}"
     ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
+    ride.avatar = mustache.render avatar, ride if ride.user?.avatar
+    console.log ride.departure
     mustache.render html, ride # row.html
 
 
@@ -47,7 +50,7 @@ route = (q, ride) -> # passenger, driver
       "<b>" + render(text) + "</b>"
     else render text
   way = table d.from, d.dep, bold
-  if pickup = p.pickup  || d.pickup
+  if pickup = p.pickup || d.pickup
     duration = p.pickup_time || d.pickup_time
     way.row duration, pickup, p.from, "via"
     if dropoff = p.dropoff || d.dropoff # pickup and dropoff
