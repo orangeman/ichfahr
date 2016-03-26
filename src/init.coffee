@@ -48,6 +48,7 @@ goTo = (div) ->
 #####   CLICK NAVIGATION   ######
 
 $("btn_search").onclick = () ->
+  return unless window.from() && window.to()
   window.query()
   url "mitfahrgelegenheit"
   goTo "mitfahrgelegenheit"
