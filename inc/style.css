@@ -351,6 +351,11 @@ h2{
     white-space: nowrap;
 }
 
+#seats li:last-child .tooltip_show,
+#mode li:last-child .tooltip_show{
+    left: auto;
+}
+
 .tooltip_show span{
     background-color: #208fdd;
     padding: 2px 5px;
