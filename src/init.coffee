@@ -35,6 +35,9 @@ url = (div, id) ->
     history.replaceState {}, div, urlify div, id
   else
     history.pushState {}, last = div, urlify div, id
+  if last != "start"
+    console.log "BACK"
+    $("logo")?.className = "back"
 
 goTo = (div) ->
   slideOut "result_contact"
@@ -84,6 +87,10 @@ window.onpopstate = (e) -> # BACK
     undim "details"
     $("result_contact_options").className = "result_contact_closed"
   goTo last = window.url().div
+  if last == "start"
+    console.log "START"
+    $("logo")?.className = ""
+
 
 
 loaded = false

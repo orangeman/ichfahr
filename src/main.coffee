@@ -16,7 +16,7 @@ for menu in menus
     if ul.target.classList.contains "open_submenu"
       window.dim window.url().div # DimderimDim
     else window.undim window.url().div
-
+$("logo").onclick = (e) -> history.back()
 
 
 # DATE PICKER
