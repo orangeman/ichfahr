@@ -280,7 +280,7 @@ h2{
     margin-right: 10px;
 }
 
- 
+
 .resultlist_user,
 .resultlist_mode,
 .resultlist_seats{
@@ -521,14 +521,14 @@ h2{
         overflow: hidden;
     }
 */
-    
+
     #wrapper{
         position: absolute;
         height: 100%;
         width: 100%;
         overflow: hidden;
     }
-    
+
     #startscreen,#details,#mitfahrgelegenheit,#details{
         position: relative;
         float: left;
@@ -556,29 +556,6 @@ h2{
 
     }
 
-    #map_wrapper {
-        position: fixed;
-        top: 0;
-        width:33%;
-        left: 67%;
-        height:100%;
-        display: none;
-    }
-    #map{
-        height: 100%;
-        width: 100%;
-    }
-    #detour{
-        position: relative;
-        top: -85%;
-        line-height: 50%;
-        width: 38%;
-        left: 3%;
-        z-index: 99999;
-        padding: 10px;
-        font-size: 2em;
-        background-color: rgba(0,0,0,0.6);
-    }
 
     .result_description{
         padding-bottom: 80px;
@@ -591,13 +568,13 @@ h2{
         width: calc(70% - 10px)!important;
 
     }
-    
+
     .result_avatar{
         width: 30%;
         padding-right: 10px;
         float: left;
     }
-    
+
     .result_avatar img{
         width: 100%;
         height: auto;
@@ -616,8 +593,8 @@ h2{
         left: 67%;
         padding-left: 0px;
     }
-    
-    
+
+
     #result_contact{
         left: 33%
     }
