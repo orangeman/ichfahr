@@ -7,10 +7,10 @@ init = () ->
   load = true
 
   document.head.insertAdjacentHTML 'beforeend', leafletcss
-
   m = document.createElement "div"
   m.id = "map"
   document.body.appendChild m
+
   map = L.map(m).setView [48.13743, 11.57549], 10
 
   L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}',
@@ -20,7 +20,7 @@ init = () ->
     maxZoom: 20,
     ext: 'png'
   ).addTo map
-  #L.control.zoom(position: "bottomright").addTo map
+  L.control.zoom(position: "bottomright").addTo map
 
   Marker = L.Icon.extend
     options:
@@ -31,16 +31,12 @@ init = () ->
       shadowAnchor: [4, 62]
 
   marker = (place, icon, cb) ->
-    console.log "  draw marker " + place
     get place, (pl) ->
-      console.log "   marker " + pl
       L.marker(JSON.parse(pl), icon: new Marker iconUrl: icon).addTo(map);
       cb() if cb
 
   path = (route, style, cb) ->
-    console.log "  draw path " + route
     get route, (path) ->
-      console.log "   path " + route
       area.push coords = decode path
       l = L.geoJson().addTo map
       l.options = style: style
@@ -58,10 +54,10 @@ init = () ->
           bbx[0][1] = ll[0] if ll[0] < bbx[0][1]
           bbx[1][0] = ll[1] if ll[1] > bbx[1][0]
           bbx[1][1] = ll[0] if ll[0] > bbx[1][1]
-      console.log "BBX " + JSON.stringify bbx
-      map.fitBounds bbx
+      #console.log "BBX " + JSON.stringify bbx
+      map.fitBounds bbx, paddingTopLeft: [0, 50]
 
-  window.showMap = (passenger, driver) ->
+  map.show = (passenger, driver) ->
     [driver, passenger] = [passenger, driver] if driver.passenger
     map.eachLayer (l) -> map.removeLayer l unless l.getAttribution
     console.log "draw " + driver.route + " via " + passenger.route
@@ -83,8 +79,16 @@ init = () ->
           console.log "passenger drawn"
           map.reAdjust()
 
+  map.zoom = (p) ->
+    console.log "ZOOM " + p
+    get p.trim(), (pp) ->
+      if pp.match /^\[\d+/ # isJson ;)
+        map.setView JSON.parse(pp), 10
+      else
+        (area = []).push coords = decode pp
+        panAndZoom()
+
   map.reAdjust = () ->
-    console.log "RE-ADJUST MAP"
     map.invalidateSize()
     panAndZoom()
 
@@ -95,13 +99,10 @@ init()
 
 Cache = {}
 get = (p, cb) ->
-  console.log "    get " + p
   if Cache[p]
-    console.log "     cache"
     cb Cache[p]
   else
     what = if p.split("/").length > 1 then "/path" else "/place/"
-    console.log "     request " + what
     window.http.get window.API + what + p, (e, r, b) ->
-      console.log "P " + r.statusCode + " :: " + b
+      #console.log "P " + r.statusCode + " :: " + b
       cb Cache[p] = b if b

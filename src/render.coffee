@@ -71,7 +71,7 @@ route = (q, ride) -> # passenger, driver
 
 row = """
 <tr class="result_table_route_dist_tr">
-    <td class="result_table_route_place">{{ dist }}</td>
+    <td class="result_table_route_place" title="{{ route }}">{{ dist }}</td>
     <td class="result_table_route_distance"></td>
     <td class="result_table_route_duration">{{ dur }}</td>
 </tr>
@@ -87,11 +87,12 @@ table = (from, dep, bold) ->
   total = 0
   rows = [dur: "", dist: "", place: from, bold: bold(from), time: tt(dep), total: "0km", icon: "from"]
   row: (duration, dist, place, icon) ->
-    guess = if icon != "to" then "~ " else ""
+    guess = if icon == "from" then "" else "~ "
     rows.push
       dur: mm(duration), dist: dist + "km", icon: icon
-      place: place, bold: bold(place)
+      route: "/#{rows[rows.length - 1]?.place}/#{place}"
       time: guess + tt(i += duration * 60000)
+      place: place, bold: bold(place)
       total: (total += dist) + "km"
   render: () ->
     html = ""
