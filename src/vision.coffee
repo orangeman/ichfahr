@@ -99,12 +99,12 @@ map.adjust = () ->
   map.invalidateSize()
   panAndZoom()
 
-  document.getElementById("full").onclick = () ->
-    (m.requestFullscreen || m.mozRequestFullScreen || m.webkitRequestFullscreen || m.msRequestFullscreen)?.call? m
-    document.addEventListener "fullscreenchange", (e) -> map.adjust()
-    document.addEventListener "mozfullscreenchange", (e) -> map.adjust()
-    document.addEventListener "webkitfullscreenchange", (e) -> map.adjust()
-    document.addEventListener "msfullscreenchange", (e) -> map.adjust()
+map.full = () ->
+  (m.requestFullscreen || m.mozRequestFullScreen || m.webkitRequestFullscreen || m.msRequestFullscreen)?.call? m
+  document.addEventListener "fullscreenchange", (e) -> map.adjust()
+  document.addEventListener "mozfullscreenchange", (e) -> map.adjust()
+  document.addEventListener "webkitfullscreenchange", (e) -> map.adjust()
+  document.addEventListener "msfullscreenchange", (e) -> map.adjust()
 
 window.map = map
 

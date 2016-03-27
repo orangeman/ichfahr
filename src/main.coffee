@@ -17,6 +17,7 @@ for menu in menus
       window.dim window.url().div # DimderimDim
     else window.undim window.url().div
 $("logo").onclick = (e) -> history.back()
+$("full").onclick = (e) -> window.map?.full?() if window.url().div == "details"
 
 
 # DATE PICKER
