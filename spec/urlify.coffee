@@ -36,6 +36,11 @@ spec "MATCH URL into query params", (t) ->
   t.equal m.div, "details"
   t.equal m.id, "xy23"
 
+  m = url.match("http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/xy23#")
+  t.equal m.route, "/Berlin/Munich"
+  t.equal m.div, "details"
+  t.equal m.id, "xy23"
+
   m = url.match("http://ichfahr.de/mitfahrgelegenheit/Berlin/Munich/abc37/edit")
   t.equal m.route, "/Berlin/Munich"
   t.equal m.div, "edit"

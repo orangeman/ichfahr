@@ -22,7 +22,7 @@ module.exports = (q) ->
 
     if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)\/([^\/]+)\/edit/
       div: "edit", route: decodeURI(m[1]), id: m[2]
-    else if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)\/([^\/]+)/
+    else if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)\/([^\/#]+)/
       div: "details", route: decodeURI(m[1]), id: m[2]
     else if m = url.match /mitfahrgelegenheit(\/[^\/]+\/[^\/]+)/
       div: "mitfahrgelegenheit", route: decodeURI(m[1])
