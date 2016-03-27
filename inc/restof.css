@@ -94,15 +94,36 @@
     left: 10px;
     top: 5px;
     height: 40px;
-    width: 40px;
+    width: 65px;
     cursor: pointer;
 }
 
 #logo img{
-    width: 100%;
+    margin-left: 0;
+    width: auto;
     height: 100%;
 }
 
+
+#backarrow{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background-image: url(/pix/back_arrow.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 0px;
+}
+
+#logo.back > #backarrow{
+        width: 15px;
+}
+
+#logo.back > img{
+    margin-left: 15px;
+}
 
 #edit h2{
     margin-bottom: 10px;
