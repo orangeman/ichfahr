@@ -86,6 +86,15 @@ window.onpopstate = (e) -> # BACK
   goTo last = window.url().div
 
 
+loaded = false
+loadMap = () ->
+  if !loaded
+    loaded = true
+    js = document.createElement "script"
+    js.src = "/inc/js/map.js"
+    document.body.appendChild js
+
+
 
 ########   SCREEN DEPENDENT LOGIC   #########
 
@@ -172,16 +181,16 @@ window.onpopstate = (e) -> # BACK
           show "details"
           setTimeout (() ->
             show "map"
-            window.map?.reAdjust()
+            window.map?.adjust?()
           ), 450
 
-    js = document.createElement "script"
-    js.src = "/inc/js/map.js"
-    document.body.appendChild js
+    loadMap()
 
+  window.map?.adjust?()
 # direct deep link  or refresh
   goTo last = window.url().div
 )() # initial resize call
+
 
 
 window.API = "http://pi.sonnenstreifen.de:5000"

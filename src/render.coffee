@@ -18,7 +18,6 @@ module.exports =
     ride.date = "#{d.getDate()} #{month[d.getMonth()]}"
     ride.title = "Gesuch: #{ride.from} > #{ride.to}, #{ride.departure}"
     ride.avatar = mustache.render avatar, ride if ride.user?.avatar
-    console.log ride.departure
     mustache.render html, ride # row.html
 
 

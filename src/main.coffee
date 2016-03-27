@@ -112,7 +112,7 @@ window.renderDetails = (id) ->
   (active = $(id))?.classList.add "active"
   $("details").innerHTML = render.details detailshtml, window.q, ride
   $("result_contact_options").innerHTML = render.contact ride.user
-  window.map?.show window.q, ride
+  window.map?.show? window.q, ride
   for p in document.getElementsByClassName "result_table_route_place"
     p.onclick = (e) -> window.map?.zoom @title || @textContent
   tooltips()
