@@ -55,7 +55,7 @@ init = () ->
           bbx[1][0] = ll[1] if ll[1] > bbx[1][0]
           bbx[1][1] = ll[0] if ll[0] > bbx[1][1]
       #console.log "BBX " + JSON.stringify bbx
-      map.fitBounds bbx, paddingTopLeft: [0, 50]
+      map.fitBounds bbx, paddingTopLeft: [0, 50], animate: true, pan: animate: true, duration: 0.5
 
   map.show = (passenger, driver) ->
     [driver, passenger] = [passenger, driver] if driver.passenger
@@ -83,7 +83,7 @@ init = () ->
     console.log "ZOOM " + p
     get p.trim(), (pp) ->
       if pp.match /^\[\d+/ # isJson ;)
-        map.setView JSON.parse(pp), 10
+        map.setView JSON.parse(pp), 10, pan: animate: true
       else
         (area = []).push coords = decode pp
         panAndZoom()
