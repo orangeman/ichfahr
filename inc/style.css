@@ -538,31 +538,46 @@ h2{
         left: 0;
         z-index: 1;
     }
-    
+
     #startscreen{
         z-index: 2;
     }
-    
+
     .vanilla-datepicker{
         width: 33.3333%!important;
     }
-    
+
     #start,#edit{
         position: relative;
         width: 100%;
         max-width: 100%;
         top: 0;
         height: auto;
-        
+
     }
-    
-    #map {
+
+    #map_wrapper {
         position: fixed;
         top: 0;
         width:33%;
         left: 67%;
         height:100%;
         display: none;
+    }
+    #map{
+        height: 100%;
+        width: 100%;
+    }
+    #detour{
+        position: relative;
+        top: -85%;
+        line-height: 50%;
+        width: 38%;
+        left: 3%;
+        z-index: 99999;
+        padding: 10px;
+        font-size: 2em;
+        background-color: rgba(0,0,0,0.6);
     }
 
     .result_description{

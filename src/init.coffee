@@ -180,7 +180,7 @@ loadMap = () ->
           slideIn "result_contact"
           show "details"
           setTimeout (() ->
-            show "map"
+            show "map_wrapper"
             window.map?.adjust?()
           ), 450
 

@@ -1,11 +1,20 @@
 decode = require "./inc/js/decode"
 
 document.head.insertAdjacentHTML 'beforeend', leafletcss
+
 m = document.createElement "div"
-m.id = "map"
+m.id = "map_wrapper"
 document.body.appendChild m
 
-map = L.map(m).setView [48.13743, 11.57549], 10
+l = document.createElement "div"
+l.id = "map"
+m.appendChild l
+
+det = document.createElement "div"
+det.id = "detour"
+m.appendChild det
+
+map = L.map(l).setView [48.13743, 11.57549], 10
 
 L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}',
   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -56,6 +65,9 @@ map.show = (passenger, driver) ->
   [driver, passenger] = [passenger, driver] if driver.passenger
   map.eachLayer (l) -> map.removeLayer l unless l.getAttribution
   console.log "draw " + driver.route + " via " + passenger.route
+  det.innerHTML = "Umweg<span style=\"font-size: 0.3em;\"><br/>über " +
+    passenger.route + "</span></br>" + (driver.det || passenger.det) + "km"
+
 
   area = []
   pickup = "/#{driver.from}/#{passenger.from}" if driver.from != passenger.from
