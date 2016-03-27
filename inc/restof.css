@@ -137,7 +137,7 @@
     background-size: contain;
 }
 
-.insert_radio_label:checked+label{
+.insert_radio_label:ed+label{
     opacity: 1;
 }
 
@@ -146,7 +146,8 @@
 }
 
 .seats_ul,
-.mode_ul{
+.mode_ul,
+.options_ul{
     width: 100%;
     height: 50px;
 }
@@ -164,6 +165,15 @@
     height: 50%;
     float: left;
 }
+
+.option{
+    width: 20%;
+    position: relative;
+    height: 50%;
+    float: left;
+}
+
+
 
 .insert_radio:checked+label{
     opacity: 1;
@@ -220,6 +230,13 @@
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_female");
+}
+
+.result_allowed_male{
+    background-image: url('/pix/icn_male.png');
+    background-image:
+    linear-gradient(transparent, transparent)
+    url("/pix/icons.svg#icn_male");
 }
 
 .result_contact_button{
