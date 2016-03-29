@@ -35,7 +35,7 @@ Marker = L.Icon.extend
 
 marker = (place, icon, cb) ->
   get place, (pl) ->
-    L.marker(JSON.parse(pl), icon: new Marker iconUrl: icon).addTo(map);
+    L.marker(JSON.parse(pl).latlon, icon: new Marker iconUrl: icon).addTo(map);
     cb() if cb
 
 path = (route, style, cb) ->
@@ -89,8 +89,8 @@ map.show = (passenger, driver) ->
 map.zoom = (p) ->
   console.log "ZOOM " + p
   get p.trim(), (pp) ->
-    if pp.match /^\[\d+/ # isJson ;)
-      map.setView JSON.parse(pp), 10, pan: animate: true
+    if pp.match /^\{/ # isJson ;)
+      map.setView JSON.parse(pp).latlon, 10, pan: animate: true
     else
       (area = []).push coords = decode pp
       panAndZoom()
