@@ -329,28 +329,28 @@
     url("/pix/icons.svg#icn_bus");
 }
 
-.mode_16{
+.mode_8{
     background-image: url('/pix/icn_train.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_train");
 }
 
-.mode_32{
+.mode_16{
     background-image: url('/pix/icn_truck.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_truck");
 }
 
-.mode_64{
+.mode_32{
     background-image: url('/pix/icn_boat.png');
     background-image:
     linear-gradient(transparent, transparent)
     url("/pix/icons.svg#icn_boat");
 }
 
-.mode_128{
+.mode_64{
     background-image: url('/pix/icn_plane.png');
     background-image:
     linear-gradient(transparent, transparent)
