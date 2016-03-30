@@ -164,6 +164,7 @@ loadMap = () ->
           show "mitfahrgelegenheit"
           slideIn "result_contact"
           slideIn "btn_edit"
+    hide "map_wrapper"
 
 
   else # DESKTOP large screen
@@ -173,13 +174,13 @@ loadMap = () ->
       setMargin 0
       switch div
         when "start"
-          hide "map"
+          hide "map_wrapper"
           hide "details"
         when "edit"
-          hide "map"
+          hide "map_wrapper"
           show "mitfahrgelegenheit"
         when "mitfahrgelegenheit"
-          hide "map"
+          hide "map_wrapper"
           hide "details"
           slideOut "result_contact"
         else #details
