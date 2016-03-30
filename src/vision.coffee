@@ -33,10 +33,26 @@ Marker = L.Icon.extend
     iconAnchor:   [22, 94]
     shadowAnchor: [4, 62]
 
+
+pop = {}
 marker = (place, icon, cb) ->
   get place, (pl) ->
-    L.marker(JSON.parse(pl).latlon, icon: new Marker iconUrl: icon).addTo(map);
+    pop[place] =
+      L.marker(JSON.parse(pl).latlon,
+        icon: new Marker iconUrl: icon)
+      .bindPopup popup(JSON.parse(pl)), offset: [-4, -19]
+      .addTo(map)
     cb() if cb
+
+popup = (p) ->
+  "<h2>#{p.name}</h2>" +
+  "<h3>#{p.adm1} / #{p.adm2} / #{p.adm3} / #{p.adm4}</h3>" +
+  "#{p.timezone}</br></br>" +
+  "Alternative Names:</br><ul>" +
+  ("<li style=\"list-style: inside;\"><b>#{n}</b> (#{l})</li>" for n,l of p.alts).join("") +
+  "</ul></br>Ambiguities:</br><ul>" +
+  ("<li style=\"list-style: inside;\"><b>#{a.name}</b> </li>" for a in p.ambig?).join("") +
+  "</ul>"
 
 path = (route, style, cb) ->
   get route, (path) ->
@@ -91,6 +107,7 @@ map.zoom = (p) ->
   get p.trim(), (pp) ->
     if pp.match /^\{/ # isJson ;)
       map.setView JSON.parse(pp).latlon, 10, pan: animate: true
+      pop[p.trim()].openPopup()
     else
       (area = []).push coords = decode pp
       panAndZoom()
