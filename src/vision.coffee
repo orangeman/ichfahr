@@ -105,10 +105,11 @@ map.show = (passenger, driver) ->
 map.zoom = (p) ->
   console.log "ZOOM " + p
   get p.trim(), (pp) ->
-    if pp.match /^\{/ # isJson ;)
-      map.setView JSON.parse(pp).latlon, 10, pan: animate: true
+    try
+      x = JSON.parse(pp)
+      map.setView x.latlon, 10, pan: animate: true
       pop[p.trim()].openPopup()
-    else
+    catch error
       (area = []).push coords = decode pp
       panAndZoom()
 
