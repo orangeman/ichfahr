@@ -73,7 +73,7 @@ window.http.get BASE + "ride/empty_form", (e, r, html) ->
 
 # SEARCH RIDES
 window.query = () ->
-  route = "/#{window.from()}/#{window.to()}"
+  route = "/#{window.from().split(",")[0]}/#{window.to().split(",")[0]}"
   return unless route.match /\/[^\/]+\/[^\/]+/
   window.q.route = route
   console.log "POST #{window.q.route} #{window.q.id?}"
