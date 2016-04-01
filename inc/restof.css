@@ -505,4 +505,13 @@
     url("/pix/icons.svg#icn_close");
 }
 
+.alert{
+    background-image: url('/pix/icn_alert.png');
+/*
+    background-image:
+    linear-gradient(transparent, transparent)
+    url("/pix/icons.svg#icn_close");
+*/
+}
+
 </style>
