@@ -88,17 +88,17 @@ map.show = (passenger, driver) ->
   area = []
   pickup = "/#{driver.from}/#{passenger.from}" if driver.from != passenger.from
   dropoff = "/#{driver.to}/#{passenger.to}" if driver.to != passenger.to
-  path driver.route, color: "#004565", weight: 9, opacity: 1
-  path pickup, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1 if pickup
-  path dropoff, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1 if dropoff
-  path passenger.route, color: "#004565", weight: 7, dashArray:"1, 10", opacity: 1, () ->
+  path driver.route, color: "#004565", weight: 5, opacity: 1
+  path pickup, color: "#208ddf", weight: 5, lineCap: 'butt', dashArray:"10, 10", opacity: 1 if pickup
+  path dropoff, color: "#208ddf", weight: 5, lineCap: 'butt', dashArray:"10, 10", opacity: 1 if dropoff
+  path passenger.route, color: "#208ddf", weight: 5, lineCap: 'butt', dashArray:"10, 10", opacity: 1, () ->
     console.log "driver drawn"
     marker driver.from, "/pix/marker_blue.png"
     marker driver.to, "/pix/marker_light_blue.png"
     marker passenger.from, "/pix/marker_yellow.png"
     marker passenger.to, "/pix/marker_yellow.png", () ->
       console.log "icons drawn"
-      path passenger.route, color: "#ffcc00", weight: 3, opacity: 1, () ->
+      path passenger.route, color: "#ffcc00", weight: 5, lineCap: 'butt', dashArray:"0, 10, 10, 0",opacity: 1, () ->
         console.log "passenger drawn"
         map.adjust()
 
