@@ -207,7 +207,7 @@ auto = require "auto-suggest"
 
 complete = (text, render) ->
   http.get "#{window.API}?q=#{encodeURI(text)}", (err, res, names) ->
-    render names.split ","
+    render names.split "|"
 
 route = window.url().route?.match /\/(.*)\/(.*)/ # default values
 window.from = auto $("from"), complete, route?[1], () -> $("btn_search").onclick()
