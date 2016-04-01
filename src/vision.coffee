@@ -81,8 +81,8 @@ map.show = (passenger, driver) ->
   [driver, passenger] = [passenger, driver] if driver.passenger
   map.eachLayer (l) -> map.removeLayer l unless l.getAttribution
   console.log "draw " + driver.route + " via " + passenger.route
-  det.innerHTML = "Umweg<span style=\"font-size: 0.3em;\"><br/>über " +
-    passenger.route + "</span></br>" + (driver.det || passenger.det) + "km"
+  det.innerHTML = "<h4>Umweg: <span>" + (driver.det || passenger.det) + "km</span></h4><div>über " +
+    passenger.route + "</div>"
 
 
   area = []
