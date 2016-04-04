@@ -66,8 +66,8 @@ window.renderEdit = () ->
   $("btn_save")?.onclick = () ->
     console.log "click"
     q.guid = window.q.id
-    q.origin = window.from()
-    q.destination = window.to()
+    q.origin = window.from().split(",")[0]
+    q.destination = window.to().split(",")[0]
     q.mobile = $("mobile").value
     q.email = $("email").value
     window.http.post BASE + "ride/create", (e, r, body) ->
