@@ -50,21 +50,20 @@ window.renderEdit = () ->
 
 (initForm = () ->
   q = {} # changes
-  append $("edit"), html
-  $("input_ride_price").oninput = () ->
+  $("input_ride_price")?.oninput = () ->
     rds.query price: q.price = this.value
-  $("seats").onchange = (e) ->
+  $("seats")?.onchange = (e) ->
     rds.query seats: q.seats = e.target.value
-  $("mode").onchange = (e) ->
+  $("mode")?.onchange = (e) ->
     console.log "MODE " + e.target.value
     rds.query mode: q.mode = e.target.value
-  $("github").onclick = () ->
+  $("github")?.onclick = () ->
     window.open "https://ifoauth.herokuapp.com/auth/github?token=" +
       rds.token() + "&ride=" + window.q.id, "Auth", "height=400,width=300"
-  $("description").oninput = () ->
+  $("description")?.oninput = () ->
     rds.query details: q.details = this.value
 
-  $("btn_save").onclick = () ->
+  $("btn_save")?.onclick = () ->
     console.log "click"
     q.guid = window.q.id
     q.origin = window.from()
@@ -76,7 +75,7 @@ window.renderEdit = () ->
       console.log body
       console.log window.q.id
     .write q
-
+)()
 
 
 # SEARCH RIDES
@@ -116,6 +115,7 @@ window.onbeforeunload = () -> rds?.close(); null
 active = null
 window.renderDetails = (id) ->
   ride = rds.get id
+  return unless ride
   console.log "DETAILS " + id
   active?.classList.remove "active"
   (active = $(id))?.classList.add "active"
