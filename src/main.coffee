@@ -40,7 +40,15 @@ pick "#date", options, (d) -> rds.query dep: d.getTime()
 # EDIT FORM
 BASE = "http://pi.sonnenstreifen.de/auth/"
 append document.head, restofcss
-window.http.get BASE + "ride/empty_form", (e, r, html) ->
+window.renderEdit = () ->
+  if id = window.url().id
+    window.renderDetails id
+    $("details").style.display = "block"
+  window.http.get BASE + "ride/empty_form", (e, r, html) ->
+    append $("edit"), html
+    initForm()
+
+(initForm = () ->
   q = {} # changes
   append $("edit"), html
   $("input_ride_price").oninput = () ->

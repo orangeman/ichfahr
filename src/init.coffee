@@ -61,9 +61,7 @@ $("btn_offer").onclick = () ->
     show "btn_save"
     goTo "edit"
     url "edit"
-    if  window.q.id
-      window.renderDetails window.q.id
-      show "details"
+    window.renderEdit()
   else history.back()
 
 $("results").onclick = (e) ->
