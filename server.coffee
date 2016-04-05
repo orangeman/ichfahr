@@ -9,6 +9,7 @@ detailshtml = require("fs").readFileSync("inc/html/details.html").toString()
 rowhtml = require("fs").readFileSync("inc/html/row.html").toString()
 JSONStream = require "JSONStream"
 render = require "./src/render"
+ip = require "geoip-resolve"
 
 process.env.TZ = 'Europe/Amsterdam'
 SONNE = "http://pi.sonnenstreifen.de"
@@ -66,10 +67,13 @@ connect().use (req, res, next) ->
     switch req.u.div
       when "edit"
         req.form = SONNE + "/auth/ride/edit/" +
-          req.u.id + "/" + req.url.split("/").pop()
+        req.u.id + "/" + req.url.split("/").pop()
       when "start"
-        return next()
+        ip.resolve req.connection.remoteAddress, (place) ->
+          console.log "IP #{req.connection.remoteAddress} is in #{place}"
+          return next()
     trompete(req, res, next)
+
 
 .use (req, res) ->
   req.url = "index.html"
