@@ -27,6 +27,11 @@ if process.argv[2] == "local"
 
 # MIX AND MASH UP HTML
 trompete = tralala [], [
+  { query: "#from"
+  func: (dom, req, res) ->
+    dom.createWriteStream().end '<input value="' + "Foo" + '" type="text" class="form_inputtext fromto start_form_from" placeholder="von" tabindex="1">
+    <span class="suggest"></span>'
+    }
   { query: "#edit"
   func: (dom, req, res) ->
     if req.form
@@ -35,6 +40,7 @@ trompete = tralala [], [
       .pipe dom.createWriteStream()},
   { query: "#results"
   func: (dom, req, res) ->
+    return unless req.u.id
     console.log "RESULTS " + req.u.id
     request API + req.u.route, headers: "accept": "stream/json"
     .pipe JSONStream.parse()
@@ -69,9 +75,11 @@ connect().use (req, res, next) ->
         req.form = SONNE + "/auth/ride/edit/" +
         req.u.id + "/" + req.url.split("/").pop()
       when "start"
-        ip.resolve req.connection.remoteAddress.match(/:(\d+\.\d+\.\d+\.\d+)$/)[1], (place) ->
+        ip.resolve (s = req.connection.remoteAddress.split(":"))[s.length - 1], (place) ->
           console.log "IP #{req.connection.remoteAddress} is in #{place}"
-          return next()
+          req.place = place
+          trompete(req, res, next)
+        return
     trompete(req, res, next)
 
 
