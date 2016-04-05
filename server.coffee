@@ -69,7 +69,7 @@ connect().use (req, res, next) ->
         req.form = SONNE + "/auth/ride/edit/" +
         req.u.id + "/" + req.url.split("/").pop()
       when "start"
-        ip.resolve req.connection.remoteAddress, (place) ->
+        ip.resolve req.connection.remoteAddress.match(/:(\d+\.\d+\.\d+\.\d+)$/)[1], (place) ->
           console.log "IP #{req.connection.remoteAddress} is in #{place}"
           return next()
     trompete(req, res, next)
