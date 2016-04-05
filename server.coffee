@@ -29,7 +29,8 @@ if process.argv[2] == "local"
 trompete = tralala [], [
   { query: "#from"
   func: (dom, req, res) ->
-    dom.createWriteStream().end '<input value="' + "Foo" + '" type="text" class="form_inputtext fromto start_form_from" placeholder="von" tabindex="1">
+    console.log "FROM PLACE #{req.place}"
+    dom.createWriteStream().end '<input value="' + req.place + '" type="text" class="form_inputtext fromto start_form_from" placeholder="von" tabindex="1">
     <span class="suggest"></span>'
     }
   { query: "#edit"
@@ -77,7 +78,8 @@ connect().use (req, res, next) ->
       when "start"
         ip.resolve (s = req.connection.remoteAddress.split(":"))[s.length - 1], (place) ->
           console.log "IP #{req.connection.remoteAddress} is in #{place}"
-          req.place = place
+          place = place.toLowerCase()
+          req.place = place[0].toUpperCase() + place[1..place.length - 1]
           trompete(req, res, next)
         return
     trompete(req, res, next)
