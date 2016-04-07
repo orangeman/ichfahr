@@ -75,6 +75,10 @@ window.renderEdit = () ->
       console.log body
       console.log window.q.id
     .write q
+
+    if (u = window.url()).div == "edit"
+      console.log "set edit ride guid"
+      window.q.id = u.id
 )()
 
 
@@ -83,12 +87,11 @@ window.query = () ->
   route = "/#{window.from().split(",")[0]}/#{window.to().split(",")[0]}"
   return unless route.match /\/[^\/]+\/[^\/]+/
   window.q.route = route
+  if (u = window.url()).div == "edit"
+    window.q.id = u.id
   console.log "POST #{window.q.route} #{window.q.id?}"
-  rds.query route: route, status: "published", (done) ->
+  rds.query id: window.q.id, route: route, (done) ->
     console.log "Done POST" # find yourself
-    if done.status != "deleted"
-      window.q[k] = v for k, v of done
-      update done
 
 
 
@@ -108,7 +111,9 @@ js.onload = () ->
     results.innerHTML = ""
     for r in rds.sort "dep"
       append results, render.row rowhtml, r
-    update ride unless ride.me
+    if ride.me && ride.status != "deleted"
+      window.q[k] = v for k, v of ride
+    update ride
 
 window.onbeforeunload = () -> rds?.close(); null
 
